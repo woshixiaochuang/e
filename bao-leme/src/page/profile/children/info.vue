@@ -13,6 +13,16 @@
             <div class="address">
                 收货地址
             </div>
+            <p>账号绑定</p>
+            <div class="phone">
+            <img src="../../../images/phone.png">
+            <span>手机</span>
+            </div>
+            <p>安全设置</p>
+            <div class="alter">
+                <span>登录密码</span>
+                <span class="alterc">修改></span>
+            </div>
         </div>
     </div>
 </template>
@@ -47,6 +57,7 @@
 <style scoped>
 .info{
     font-size: .2rem;
+     background-color: white;
 }
 .photo{
     width: 100%;
@@ -73,9 +84,32 @@
     position: absolute;
     right: 0.3rem;
 }
-.address{
+.address,p{
     padding: .1rem;
     border-top: .05rem solid rgb(229, 234, 235);
+}
+p{
+    font-size: .1rem;
+    background-color: #eaf0f0f1;
+    width: 100%;
+    padding: .1rem
+}
+.phone{
+    padding: .1rem;
+    display: flex;
+    align-items: center;
+}
+.phone img {
+    height: .4rem;
+}
+.alter{
+    font-size: .2rem;
+    padding:.1rem;
+    display: flex;
+    align-items: center;
+}
+.alter span{
+padding:.1rem;
 }
 </style>
 
