@@ -6,10 +6,14 @@
                 <span>头像</span>
                 <img src="../../../images/default.png">
             </div>
+             <router-link to="/profile/info/setusername">
             <div class="username">
+               
                 <span>用户名</span>
                 <span class="id">{{username}}</span>
+                
             </div>
+            </router-link>
             <div class="address">
                 收货地址
             </div>
