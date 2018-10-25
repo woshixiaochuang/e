@@ -12,6 +12,7 @@ import Info from "../page/profile/children/info.vue"
 import home from '../page/home/Home-app'
 import City from '../page/city/city'
 import Forget from '../page/forget/forget'
+import Msite from '../page/msite/Msite'
 Vue.use(Router)
 
 export default new Router({
