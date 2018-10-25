@@ -5,7 +5,6 @@
       <div style=" text-align:center;"><span style="font-size:.2rem; font-weight: bolder;color:white">重置密码</span></div>
     </div>
      <ul>
-              <form action="" method="post">
               <li class="input">
                   <input class="input_1" type="text" placeholder="账号">
               </li>
@@ -29,7 +28,6 @@
                   </div>
               </li>
               <li style="margin-top:.2rem; text-align:center"><input style="background:#00FA9A;width:90%;height:.4rem;font-size:.18rem;color:white;font-weight: bolder;border-radius: .05rem;" type="submit" value="确认修改"></li>
-              </form>
        </ul>       
     </div>
 </template>
@@ -39,7 +37,7 @@ export default {
   name: "forget",
    data() {
     return {
-      type: "password",
+     
       on: false,
       img: []
     };
@@ -51,18 +49,7 @@ export default {
     });
   },
   methods: {
-    password() {
-      if (this.on == true) {
-        this.type = "text";
-        box_box.style.left = ".234rem";
-        box_change.style.background = "#00FA9A";
-      } else {
-        this.type = "password";
-        box_box.style.left = "-0.018rem";
-        box_change.style.background = "#A9A9A9";
-      }
-      this.on = !this.on;
-    },
+  
     change() {
       let api = "/api/v1/captchas";
       this.axios.post(api).then(data => {
