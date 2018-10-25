@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <img src="../../images/back.png" class="back" @click="back">
+        <i class="el-icon-arrow-left" style="position:absolute;top:.14rem;left:.1rem;font-size:.2rem;font-weight: bolder;color:white"></i>
         <span class="my">{{inputName}}</span>
     </div>
 </template>
@@ -24,7 +24,8 @@
     color: white;
     height: 0.45rem;
     line-height: 0.45rem;
-    font-size: 0.2rem
+    font-size: 0.2rem;
+    text-align: center;
 }
 .back{
     width: 10%;
@@ -32,7 +33,8 @@
     float: left
 }
 .my{
-    margin-left: 33%
+    width: 100%;
+    /* border: 1px solid red */
 }
 </style>
 
