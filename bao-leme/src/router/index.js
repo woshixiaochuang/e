@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import footGuide from '../components/footer/footGuide.vue'
+// import footGuide from '../components/footer/footGuide.vue'
 import Profile from '../page/profile/profile.vue' 
 import Search from '../page/search/search.vue'
 import Balance from "../page/balance/balance.vue"
@@ -80,12 +80,12 @@ export default new Router({
       component:Info
     },
     {
-      path: '/',
+      path: '/shopsLiebiao',
       name: 'shopsLiebiao',
       component: shopsLiebiao
     },
     {
-      path: 'shopsLiebiao/:id?',
+      path: '/shopsLiebiao/:id?',
       name: 'shopsDange',
       component: shopsDange
     }
