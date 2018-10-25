@@ -9,12 +9,39 @@ import Points from "../page/points/points.vue"
 import Detailpoints from "../page/points/children/detail.vue"
 import Login from "../page/login/login.vue"
 import Info from "../page/profile/children/info.vue"
+import home from '../page/home/Home-app'
+import City from '../page/city/city'
+import Forget from '../page/forget/forget'
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {path:"/",
-    component:footGuide  
+    {
+      path: '/',
+      component: home
+    },{
+      path:"/home",
+      name:"app",
+      component:home
+    },{
+      path:'/login',
+      name:"login",
+      component:Login
+    },{
+      path:'/city',
+      name:"city",
+      component:City
+    },{
+      path:'/forget',
+      name:"forget",
+      component:Forget
+    },{
+      path:'/city/:id',
+      component:City
+    },{
+      path:'/msite',
+      name:"msite",
+      component:Msite
     },
     {
       path:'/profile',
