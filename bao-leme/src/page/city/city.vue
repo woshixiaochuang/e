@@ -54,7 +54,6 @@ export default {
     };
   },
   created() {
-    console.log(localStorage)
     var newsearches = this.dedup(searches);
     this.LsCentern = newsearches;
     this.id = this.$route.params.id;
@@ -96,10 +95,18 @@ export default {
         }
         localStorage.setItem("searches", JSON.stringify(searches));
       }
-      this.$router.push({path:"../msite/"+this.id});
+      var latitude = n.latitude
+      var longitude = n.longitude
+      this.$router.push({
+        name:"msite",
+        params:{
+          latitude:latitude,
+          longitude:longitude,
+        }
+      });
     },
     clear() {
-      searches.splice(0);
+      this.LsCentern.splice(0);
       localStorage.removeItem("searches");
     },
     dedup(arr) {

@@ -12,7 +12,18 @@ export default {
     name:"msite",
     components:{
         footers
-    }
+    },
+    data(){
+        return{
+
+        }
+    },
+    created() {
+        var ss = this.$route.params.latitude;
+        var s = this.$route.params.longitude;
+        console.log(ss)
+        console.log(s)
+    },
 }
 </script>
 

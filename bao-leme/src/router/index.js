@@ -18,6 +18,7 @@ import shopsDange from '@/components/shop/children/shopsDange'
 import Setusername from "../page/profile/children/setusername.vue"
 import Chooseaddress from "../page/confirmOrder/children/chooseAddress.vue"
 import Addaddress from "../page/confirmOrder/children/children/addAddress.vue"
+import Order from "../page/order/order"
 Vue.use(Router)
 
 export default new Router({
@@ -48,6 +49,11 @@ export default new Router({
       path:'/msite/:id?',
       name:"msite",
       component:Msite
+    },
+    {
+      path:'/order',
+      name:"order",
+      component:Order
     },
     {
       path:'/profile',
