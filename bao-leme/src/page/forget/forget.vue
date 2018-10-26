@@ -25,19 +25,20 @@
                   </div>
               </li>
               <li style="margin-top:.2rem; text-align:center">
-                
                   <input @click="btn" style="background:#00FA9A;width:90%;height:.4rem;font-size:.18rem;color:white;font-weight: bolder;border-radius: .05rem;" type="submit" value="确认修改">
-             
-                  </li>
-                 
+              </li>        
        </ul>
-
+            <tsk :alertValue="alertValue" ></tsk>
     </div>
 </template>
 
 <script>
+import tsk from "../../components/common/alertTip";
 export default {
   name: "forget",
+  components: {
+    tsk
+  },
   data() {
     return {
       on: false,
@@ -47,11 +48,15 @@ export default {
       newpassword: "",
       confirmpassword: "",
       code: "",
-      message:""
+      message: "",
+      alertValue: {
+        msg: "",
+        isShow: ""
+      }
     };
   },
   created() {
-     console.log(this.message)
+    console.log(this.message);
     let api = "/api/v1/captchas";
     this.axios.post(api).then(data => {
       this.img = data.data.code;
@@ -66,6 +71,11 @@ export default {
       });
     },
     btn() {
+      // this.tsks = !this.tsk;
+      // this.tss = this.message;
+
+     
+
       let api =
         "/api/v2/changepassword?username=" +
         this.username +
@@ -77,9 +87,12 @@ export default {
         this.confirmpassword +
         "captcha_code" +
         this.code;
-        this.axios.post(api).then(data => {
-        this.message = data.data.message
-       
+      this.axios.post(api).then(data => {
+        this.message = data.data.message;
+         this.alertValue = {
+        msg: this.message,
+        isShow: true
+      };
       });
     }
   }

@@ -92,6 +92,7 @@ export default {
       } else {
         if (n != null) {
           searches.push(n);
+          searches.push(this.id)
         }
         localStorage.setItem("searches", JSON.stringify(searches));
       }
