@@ -88,6 +88,7 @@ export default {
               user: data.data
             }
           });
+          localStorage.setItem("user_id",data.data.id)
         }
       });
       //存储用户名和密码

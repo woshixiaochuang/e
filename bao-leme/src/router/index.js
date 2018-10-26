@@ -18,6 +18,7 @@ import shopsDange from '@/components/shop/children/shopsDange'
 import Setusername from "../page/profile/children/setusername.vue"
 import Chooseaddress from "../page/confirmOrder/children/chooseAddress.vue"
 import Addaddress from "../page/confirmOrder/children/children/addAddress.vue"
+import Searchaddress from "../page/confirmOrder/children/children/children/searchAddress.vue"
 Vue.use(Router)
 
 export default new Router({
@@ -103,6 +104,10 @@ export default new Router({
     {
       path:"/profile/info/address/add",
       component:Addaddress
+    },
+    {
+      path:"/profile/info/address/add/addDetail",
+      component:Searchaddress
     }
   ]
 })

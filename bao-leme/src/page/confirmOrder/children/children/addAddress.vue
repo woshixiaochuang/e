@@ -5,13 +5,13 @@
               <li class="input">
                   <input class="input_1" type="text" placeholder="请填写你的姓名" v-model="name">
               </li>
-              <router-link to="/city">
+              <router-link to="/profile/info/address/add/addDetail">
               <li class="input">
-                  <input class="input_1" type="text" placeholder="小区/写字楼/学校等">
+                  <input v-model="address" class="input_1" type="text" placeholder="小区/写字楼/学校等">
               </li>
               </router-link>
               <li class="input">
-                  <input class="input_1" type="text" placeholder="请填写详细送餐地址" v-model="particular">
+                  <input class="input_1" type="text" placeholder="请填写详细送餐地址" v-model="address_detail">
               </li>
               <li class="input">
                   <input class="input_1" type="text" placeholder="请填写能够联系到你的手机号" v-model="phone">
@@ -22,7 +22,7 @@
                   </div>
                </li>
               <li style="margin-top:.2rem; text-align:center">
-                  <input   class="new" type="submit" value="新增地址">
+                  <input @click="add"   class="new" type="submit" value="新增地址">
               </li>    
        </ul>
     </div>
@@ -65,7 +65,38 @@ export default {
                    console.log(arg);
                    this.user_id = arg.user_id;
                }
-           )
+           );
+           this.address = this.$route.query.address;
+           this.geohash = this.$route.query.geohash;
+  },
+  methods:{
+      add(){
+          let api = "https://elm.cangdu.org/v1/users/"+this.user_id+"/addresses";
+          this.axios({
+              url:api,
+              method:"post",
+              data:{
+                  user_id:this.user_id,
+                  address:this.address,
+                  address_detail:this.address_detail,
+                  geohash:this.geohash,
+                  name:this.name,
+                  phone:this.phone,
+                  tag:this.tag,
+                  sex:this.sex,
+                  phone_bk:this.phone_bk,
+                  tag_type:this.tag_type
+              }
+          }).then(
+             this.$router.push({
+                 path:"/profile/info/address",
+                 query:{
+                     address:this.address,
+                     phone:this.phone
+                 }
+             })
+          )
+      }
   }
 };
 </script>
