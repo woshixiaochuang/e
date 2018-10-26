@@ -98,7 +98,8 @@ export default {
     };
   },
   created() {
-      let n = this.$route.query.user.username
+      let n = localStorage.username;
+
     if (n) {
       this.username = n;
       this.link = "/profile/info"

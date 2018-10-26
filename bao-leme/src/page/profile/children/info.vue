@@ -8,15 +8,15 @@
             </div>
              <router-link to="/profile/info/setusername">
             <div class="username">
-               
                 <span>用户名</span>
                 <span class="id">{{username}}</span>
-                
             </div>
             </router-link>
+            <router-link to="/profile/info/address">
             <div class="address">
                 收货地址
             </div>
+            </router-link>
             <p>账号绑定</p>
             <div class="phone">
             <img src="../../../images/phone.png">

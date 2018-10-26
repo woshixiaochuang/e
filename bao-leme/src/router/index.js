@@ -16,6 +16,7 @@ import Msite from '../page/msite/Msite'
 import shopsLiebiao from '@/components/shop/children/shopsLiebiao'
 import shopsDange from '@/components/shop/children/shopsDange'
 import Setusername from "../page/profile/children/setusername.vue"
+import Chooseaddress from "../page/confirmOrder/children/chooseAddress.vue"
 Vue.use(Router)
 
 export default new Router({
@@ -93,6 +94,10 @@ export default new Router({
     {
       path:"/profile/info/setusername",
       component:Setusername
+    },
+    {
+      path:"/profile/info/address",
+      component:Chooseaddress
     }
   ]
 })

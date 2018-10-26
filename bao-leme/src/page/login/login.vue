@@ -2,7 +2,7 @@
 <div>
     <Aheader :inputName="name"></Aheader>
     <div id="login">
-      <div class="input"  style="windth:100%;background:white"><input class="padding-i" type="text" placeholder="账号" v-model="id"></div>
+      <div class="input"  style="windth:100%;background:white"><input class="padding-i" type="text" placeholder="账号" v-model="username"></div>
       <div class="input" style="windth:100%;background:white;position: relative;"><input class="padding-i" :type="type" placeholder="密码" v-model="password"> <div id="box_change" style="font-size:.15rem;background:#A9A9A9;position:absolute;right:.1rem;top:.21rem;width:.48rem;border-radius: .05rem;color:white">on <div id="box_box" @click="pass" style="border-radius: 50%;position:absolute;top:-0.05rem;left:-0.018rem;background:#696969;width:.25rem;height:.25rem;"></div> off</div></div>
       <div class="input" style="position: relative;width:100%;background:white"><input class="padding-i" onkeyup="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}"  style="width:2.3rem" type="text" placeholder="验证码" v-model="verifynum"><img class="aa" :src="img" alt=""> <div @click="verify" class="verify">
           <div style="position:absolute;right:.1rem;top:.16rem;">
@@ -36,14 +36,14 @@ export default {
       type: "password",
       img: "",
       name: "密码登录",
-      id: "",
+      username: "",
       password: "",
       verifynum: "",
       address: "###"
     };
   },
   methods: {
-     pass() {
+    pass() {
       if (this.on == true) {
         this.type = "text";
         box_box.style.left = ".234rem";
@@ -66,6 +66,7 @@ export default {
       });
     },
     login() {
+      //提交数据给后台
       let api = "https://elm.cangdu.org/v2/login";
       this.axios({
         method: "post",
@@ -74,23 +75,29 @@ export default {
         data: {
           captcha_code: this.verifynum,
           password: this.password,
-          username: this.id
+          username: this.username
         }
       }).then(data => {
         if (data.data.message) {
           alert(data.data.message);
         } else {
           console.log(data.data);
-          this.$router.push({ name: "profile" ,
-          query:{
-              user:data.data
-          }
+          this.$router.push({
+            name: "profile",
+            query: {
+              user: data.data
+            }
           });
         }
       });
+      //存储用户名和密码
+    localStorage.setItem('username',this.username);
+    localStorage.setItem('password',this.password);
     }
   },
   mounted() {
+    this.username= localStorage.username;
+    this.password = localStorage.password;
     let api = "https://elm.cangdu.org/v1/captchas";
     this.axios({
       method: "post",
@@ -106,9 +113,9 @@ export default {
 <style scoped>
 input {
   font-size: 0.2rem;
-  padding: 0.2rem 0 ;
+  padding: 0.2rem 0;
   outline: medium;
-  }
+}
 .switch img {
   width: 50%;
 }
@@ -134,11 +141,11 @@ input {
   border-radius: 0.1rem;
   font-size: 0.2rem;
 }
-.input{
-  border:.01rem solid #eaf0f0f1;
+.input {
+  border: 0.01rem solid #eaf0f0f1;
 }
-.padding-i{
-  padding-left: .1rem
+.padding-i {
+  padding-left: 0.1rem;
 }
 </style>
 
