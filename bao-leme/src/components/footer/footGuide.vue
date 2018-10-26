@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       imgs: [
-        { img: img01, title: "首页", name:'homepage'},
+        { img: img01, title: "首页", name:'msite'},
         { img: img02, title: "搜索", name:'search'},
         { img: img03, title: "订单", name:'order'},
         { img: img04, title: "我的", name:'profile'}

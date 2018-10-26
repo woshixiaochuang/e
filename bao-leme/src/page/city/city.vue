@@ -50,10 +50,11 @@ export default {
       value: "",
       ls: true,
       i: 0,
-      LsCentern: ""
+      LsCentern: "",
     };
   },
   created() {
+    console.log(localStorage)
     var newsearches = this.dedup(searches);
     this.LsCentern = newsearches;
     this.id = this.$route.params.id;
@@ -92,11 +93,10 @@ export default {
       } else {
         if (n != null) {
           searches.push(n);
-          searches.push(this.id)
         }
         localStorage.setItem("searches", JSON.stringify(searches));
       }
-      this.$router.push({ name: "msite" });
+      this.$router.push({path:"../msite/"+this.id});
     },
     clear() {
       searches.splice(0);

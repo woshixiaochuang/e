@@ -48,6 +48,10 @@ export default new Router({
       path:'/msite',
       name:"msite",
       component:Msite
+    },{
+      path:'/msite/:id',
+      name:"msite",
+      component:Msite
     },
     {
       path:'/profile',
