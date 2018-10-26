@@ -80,6 +80,7 @@ export default {
     },
     city(n,id){
       this.$router.push({path:`/city/`+id});
+      localStorage.setItem("city_id",id)
       // this.$root.Bus.$emit(n,city.n++);
     }
   }
