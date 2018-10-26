@@ -53,9 +53,11 @@
          </div> 
          <div class="subtitle">
              <div v-for="(item,index) in subtitle" :key="index">
+               <router-link :to="item.path">
                  <img :src="item.img">
                  <span>{{item.title}}</span>
                  <i class="el-icon-arrow-right"></i>
+                 </router-link>
              </div>
          </div>
          <div  class="subtitle second" >
@@ -91,9 +93,9 @@ export default {
       username:"登录/注册",
       link:"login",
       subtitle: [
-        { img: scar, title: "我的订单" },
-        { img: score, title: "积分商城" },
-        { img: vip, title: "饿了么会员卡" }
+        { img: scar, title: "我的订单",path:"/order"},
+        { img: score, title: "积分商城",path:"/" },
+        { img: vip, title: "饿了么会员卡",path:"vipcard"}
       ]
     };
   },

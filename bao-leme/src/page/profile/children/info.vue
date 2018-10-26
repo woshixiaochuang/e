@@ -28,19 +28,23 @@
                 <span class="alterc">修改></span>
             </div>
         </div>
+        <button @click="exit" class="exit">退出登录</button>
+        <Alert alert-value="确定退出"></Alert>
     </div>
 </template>
 <script>
   import Aheader from "../../../components/header/header.vue"
+  import Alert from "../../../components/common/alertTip.vue"
    export default {
        name:'info',
        components:{
-           Aheader
+           Aheader,Alert
        },
        data(){
            return{
                name:"账户信息",
-               username:''
+               username:'',
+               show:true
            }
        },
        created() {
@@ -56,6 +60,17 @@
                }
            )
        },
+       methods:{
+           exit(){
+               let api = "https://elm.cangdu.org/v2/signout";
+               this.axios.get(api).then(
+                   this.$router.push({
+                       path:"/profile"
+                   }),
+                  localStorage.clear()
+               )
+           }
+       }
    }    
 </script>
 <style scoped>
@@ -114,6 +129,15 @@ p{
 }
 .alter span{
 padding:.1rem;
+}
+.exit{
+    width: 90%;
+    background-color: rgb(236, 73, 73);
+    color: white;
+    height: .4rem;
+    margin-top: .2rem;
+    margin-left: 5%;
+    border-radius: .1rem;
 }
 </style>
 
