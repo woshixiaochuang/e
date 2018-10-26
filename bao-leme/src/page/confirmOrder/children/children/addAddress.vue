@@ -1,26 +1,28 @@
 <template>
     <div id="forget">
-        <aheader :input-name="name"></aheader>
+        <aheader :input-name="message"></aheader>
      <ul>
               <li class="input">
-                  <input class="input_1" type="text" placeholder="请填写你的姓名">
+                  <input class="input_1" type="text" placeholder="请填写你的姓名" v-model="name">
               </li>
+              <router-link to="/city">
               <li class="input">
                   <input class="input_1" type="text" placeholder="小区/写字楼/学校等">
               </li>
+              </router-link>
               <li class="input">
-                  <input class="input_1" type="text" placeholder="请填写详细送餐地址">
+                  <input class="input_1" type="text" placeholder="请填写详细送餐地址" v-model="particular">
               </li>
               <li class="input">
-                  <input class="input_1" type="text" placeholder="请填写能够联系到你的手机号">
+                  <input class="input_1" type="text" placeholder="请填写能够联系到你的手机号" v-model="phone">
               </li>
                <li class="input" style="position:relative">
-                  <input class="input_1" type="text" placeholder="备用联系电话(选填）">
+                  <input class="input_1" type="text" placeholder="备用联系电话(选填）" v-model="phone_bk">
                   <div id="size" style="position:absolute;right:.1rem;top:.16rem;">
                   </div>
                </li>
               <li style="margin-top:.2rem; text-align:center">
-                  <input  class="new" type="submit" value="新增地址">
+                  <input   class="new" type="submit" value="新增地址">
               </li>    
        </ul>
     </div>
@@ -35,8 +37,35 @@ export default {
   },
   data(){
       return{
-          name:"新增地址"
+          message:"新增地址",
+          name:'',
+          particular:'',
+          phone:'',
+          user_id:null,
+          address:'',
+          address_detail:'',
+          geohash:'',
+          tag:'我是余文杰',
+          sex:1,
+          poi_type:0,
+          phone_bk:'',
+          tag_type:2,
       }
+  },
+  //获取用户信息
+  created(){
+      let api = "https://elm.cangdu.org/v1/user";
+           this.axios({
+                method: "get",
+                url: api,
+                 withCredentials: true
+           }).then(
+               data=>{
+                   let arg = data.data;
+                   console.log(arg);
+                   this.user_id = arg.user_id;
+               }
+           )
   }
 };
 </script>

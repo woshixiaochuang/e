@@ -4,7 +4,7 @@
         <div class="all">
          <form action="" method="get">
            <input class="search" type="text" placeholder="请输入商家或美食名称">
-           <input class="button" type="submit" value="提交">
+           <input @click="search" class="button" type="submit" value="提交">
          </form>
         </div>
         <foot-guide></foot-guide>
@@ -19,17 +19,14 @@ export default {
     Aheader,
     footGuide
   },
-  created() {
-      let api = "https://elm.cangdu.org/v4/restaurants";
-      this.axios.get(api).then(
-          (data)=>{
-             console.log(data.data) 
-          }
-      )
-  },
   data(){
     return {
       name:"搜索"
+    }
+  },
+  methods:{
+    search(){
+      console.log(localStorage)
     }
   }
 };
