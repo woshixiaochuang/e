@@ -17,6 +17,7 @@ import shopsLiebiao from '@/components/shop/children/shopsLiebiao'
 import shopsDange from '@/components/shop/children/shopsDange'
 import Setusername from "../page/profile/children/setusername.vue"
 import Chooseaddress from "../page/confirmOrder/children/chooseAddress.vue"
+import Addaddress from "../page/confirmOrder/children/children/addAddress.vue"
 Vue.use(Router)
 
 export default new Router({
@@ -98,6 +99,10 @@ export default new Router({
     {
       path:"/profile/info/address",
       component:Chooseaddress
+    },
+    {
+      path:"/profile/info/address/add",
+      component:Addaddress
     }
   ]
 })

@@ -1,7 +1,9 @@
 <template>
     <div>
         <aheader :input-name="name"></aheader>
+        <router-link to="/profile/info/address/add">
         <div class="new"><span>新增地址</span><span class="arrow">></span></div>
+        </router-link>
     </div>
 </template>
 <script>
