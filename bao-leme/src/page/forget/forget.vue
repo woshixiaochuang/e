@@ -6,28 +6,25 @@
     </div>
      <ul>
               <li class="input">
-                  <input class="input_1" type="text" placeholder="账号">
+                  <input class="input_1" type="text" placeholder="账号" v-model="username">
               </li>
               <li class="input">
-                  <input class="input_1" type="text" placeholder="旧密码">
+                  <input class="input_1" type="text" placeholder="旧密码" v-model="oldpassword">
               </li>
               <li class="input">
-                  <input class="input_1" type="text" placeholder="请输入新密码">
+                  <input class="input_1" type="text" placeholder="请输入新密码" v-model="newpassword">
               </li>
               <li class="input">
-                  <input class="input_1" type="text" placeholder="请确认密码">
-              </li>
-              <li class="input">
-                  <input class="input_1" type="text" placeholder="请确认密码">
+                  <input class="input_1" type="text" placeholder="请确认密码" v-model="confirmpassword">
               </li>
                <li class="input" style="position:relative">
-                  <input onkeyup="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}" maxlength="4" class="input_1" type="text" placeholder="验证码"><img style="padding-top:.02rem" :src="img" alt="验证码">
+                  <input v-model="code" onkeyup="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}" maxlength="4" class="input_1" type="text" placeholder="验证码"><img style="padding-top:.02rem" :src="img" alt="验证码">
                   <div id="size" style="position:absolute;right:.1rem;top:.16rem;">
                   <p style="margin-bottom:.03rem">看不清</p>
                   <p @click="change" style="color:#0474f5f1">换一张</p>
                   </div>
               </li>
-              <li style="margin-top:.2rem; text-align:center"><input style="background:#00FA9A;width:90%;height:.4rem;font-size:.18rem;color:white;font-weight: bolder;border-radius: .05rem;" type="submit" value="确认修改"></li>
+              <li style="margin-top:.2rem; text-align:center"><input @click="btn" style="background:#00FA9A;width:90%;height:.4rem;font-size:.18rem;color:white;font-weight: bolder;border-radius: .05rem;" type="submit" value="确认修改"></li>
        </ul>       
     </div>
 </template>
@@ -35,11 +32,15 @@
 <script>
 export default {
   name: "forget",
-   data() {
+  data() {
     return {
-     
       on: false,
-      img: []
+      img: [],
+      username: "",
+      oldpassword: "",
+      newpassword: "",
+      confirmpassword: "",
+      code: ""
     };
   },
   created() {
@@ -49,20 +50,34 @@ export default {
     });
   },
   methods: {
-  
     change() {
       let api = "/api/v1/captchas";
       this.axios.post(api).then(data => {
         this.img = data.data.code;
         console.log(data);
       });
+    },
+    btn() {
+      let api =
+        "/api/v2/changepassword?username=" +
+        this.username +
+        "oldpassWord=" +
+        this.oldpassword +
+        "newpasswprd=" +
+        this.newpassword +
+        "confirmpassword" +
+        this.confirmpassword +
+        "captcha_code" +
+        this.code;
+        this.axios(api).then(data => {
+        console.log(data);
+      });
     }
-}
-}
+  }
+};
 </script>
 
 <style scoped>
-
 #box {
   background-color: #0474f5f1;
   height: 0.45rem;

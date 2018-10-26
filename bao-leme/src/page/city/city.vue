@@ -54,6 +54,7 @@ export default {
     };
   },
   created() {
+    consloe.log(this.lsCentern)
      var newsearches = this.dedup(searches)
    this.LsCentern = newsearches
     this.id = this.$route.params.id;
@@ -90,7 +91,6 @@ export default {
       if (n == "") {
         alert(输入为空);
       } else {
-        console.log(searches)
         if(n != null){
           searches.push(n)
         }
@@ -127,7 +127,7 @@ export default {
   height: 0.6rem;
   background: white;
   border-bottom: 0.01rem solid #808080;
-}
+}  
 .city_center {
   /* border:1px solid red; */
   padding: 0.15rem;
