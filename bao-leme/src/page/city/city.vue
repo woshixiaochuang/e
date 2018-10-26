@@ -39,7 +39,7 @@
 </template>
 
 <script>
- var searches = localStorage.searches ? JSON.parse(localStorage.searches) : [];
+let searches = localStorage.searches ? JSON.parse(localStorage.searches) : [];
 export default {
   name: "city",
   data() {
@@ -50,13 +50,12 @@ export default {
       value: "",
       ls: true,
       i: 0,
-      LsCentern:""
+      LsCentern: ""
     };
   },
   created() {
-    consloe.log(this.lsCentern)
-     var newsearches = this.dedup(searches)
-   this.LsCentern = newsearches
+    var newsearches = this.dedup(searches);
+    this.LsCentern = newsearches;
     this.id = this.$route.params.id;
     let api = "/api/v1/cities/" + this.id;
     this.axios.get(api).then(data => {
@@ -91,24 +90,24 @@ export default {
       if (n == "") {
         alert(输入为空);
       } else {
-        if(n != null){
-          searches.push(n)
+        if (n != null) {
+          searches.push(n);
         }
         localStorage.setItem("searches", JSON.stringify(searches));
       }
-      this.$router.push({name:'msite'});
+      this.$router.push({ name: "msite" });
     },
-    clear(){
-       searches.splice(0);
-       localStorage.removeItem("searches")
+    clear() {
+      searches.splice(0);
+      localStorage.removeItem("searches");
     },
     dedup(arr) {
-        let hashTable = {};
-        return  arr.filter(el =>{
-            let key = JSON.stringify(el);
-            let match = Boolean(hashTable[key]);
-            return (match ? false : hashTable[key] = true);
-    })
+      let hashTable = {};
+      return arr.filter(el => {
+        let key = JSON.stringify(el);
+        let match = Boolean(hashTable[key]);
+        return match ? false : (hashTable[key] = true);
+      });
     }
   }
 };
@@ -127,11 +126,11 @@ export default {
   height: 0.6rem;
   background: white;
   border-bottom: 0.01rem solid #808080;
-}  
+}
 .city_center {
   /* border:1px solid red; */
   padding: 0.15rem;
   background: white;
-  border-bottom: .012rem solid #808080;
+  border-bottom: 0.012rem solid #808080;
 }
 </style>

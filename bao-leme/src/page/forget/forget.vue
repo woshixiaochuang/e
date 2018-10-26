@@ -24,8 +24,14 @@
                   <p @click="change" style="color:#0474f5f1">换一张</p>
                   </div>
               </li>
-              <li style="margin-top:.2rem; text-align:center"><input @click="btn" style="background:#00FA9A;width:90%;height:.4rem;font-size:.18rem;color:white;font-weight: bolder;border-radius: .05rem;" type="submit" value="确认修改"></li>
-       </ul>       
+              <li style="margin-top:.2rem; text-align:center">
+                
+                  <input @click="btn" style="background:#00FA9A;width:90%;height:.4rem;font-size:.18rem;color:white;font-weight: bolder;border-radius: .05rem;" type="submit" value="确认修改">
+             
+                  </li>
+                 
+       </ul>
+
     </div>
 </template>
 
@@ -40,10 +46,12 @@ export default {
       oldpassword: "",
       newpassword: "",
       confirmpassword: "",
-      code: ""
+      code: "",
+      message:""
     };
   },
   created() {
+     console.log(this.message)
     let api = "/api/v1/captchas";
     this.axios.post(api).then(data => {
       this.img = data.data.code;
@@ -69,8 +77,9 @@ export default {
         this.confirmpassword +
         "captcha_code" +
         this.code;
-        this.axios(api).then(data => {
-        console.log(data);
+        this.axios.post(api).then(data => {
+        this.message = data.data.message
+       
       });
     }
   }
