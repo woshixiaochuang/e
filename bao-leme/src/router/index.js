@@ -19,6 +19,7 @@ import Setusername from "../page/profile/children/setusername.vue"
 import Chooseaddress from "../page/confirmOrder/children/chooseAddress.vue"
 import Addaddress from "../page/confirmOrder/children/children/addAddress.vue"
 import Searchaddress from "../page/confirmOrder/children/children/children/searchAddress.vue"
+import Order from "../page/order/order"
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +52,11 @@ export default new Router({
       component:Msite
     },
     {
+      path:'/order',
+      name:"order",
+      component:Order
+    },
+    {
       path:'/profile',
       name:'profile',
       component:Profile
@@ -61,6 +67,7 @@ export default new Router({
     },
     {
       path:"/search",
+      name:"search",
       component:Search
     },
     {
