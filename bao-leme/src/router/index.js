@@ -45,7 +45,7 @@ export default new Router({
       path:'/city/:id',
       component:City
     },{
-      path:'/msite',
+      path:'/msite/:id?',
       name:"msite",
       component:Msite
     },
