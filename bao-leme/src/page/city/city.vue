@@ -97,11 +97,15 @@ export default {
       }
       var latitude = n.latitude
       var longitude = n.longitude
+      var name = n.name
+      localStorage.setItem("shopping_name",name)
+      var geohash = n.geohash
       this.$router.push({
         name:"msite",
         params:{
           latitude:latitude,
           longitude:longitude,
+          geohash:geohash
         }
       });
     },
