@@ -15,6 +15,7 @@ import Forget from '../page/forget/forget'
 import Msite from '../page/msite/Msite'
 import shopsLiebiao from '@/components/shop/children/shopsLiebiao'
 import shopsDange from '@/components/shop/children/shopsDange'
+import shopdetail from '@/components/shop/children/shopdetail'
 import Setusername from "../page/profile/children/setusername.vue"
 import Chooseaddress from "../page/confirmOrder/children/chooseAddress.vue"
 import Addaddress from "../page/confirmOrder/children/children/addAddress.vue"
@@ -120,6 +121,11 @@ export default new Router({
     {
       path:"/vipcard",
       component:Vipcard
+    },
+    {
+      path: '/shopsLiebiao/shopdetail',
+      name:"shopdetail",
+      component: shopdetail
     }
   ]
 })
