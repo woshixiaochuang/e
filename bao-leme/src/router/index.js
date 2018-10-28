@@ -21,6 +21,7 @@ import Addaddress from "../page/confirmOrder/children/children/addAddress.vue"
 import Searchaddress from "../page/confirmOrder/children/children/children/searchAddress.vue"
 import Order from "../page/order/order"
 import Vipcard from "../page/vipcard/vipcard.vue"
+import Payment from "../page/confirmOrder/children/payment.vue"
 Vue.use(Router)
 
 export default new Router({
@@ -120,6 +121,11 @@ export default new Router({
     {
       path:"/vipcard",
       component:Vipcard
+    },
+    {
+      //付款路由
+      path:"/confirmOrder/payment",
+      component:Payment
     }
   ]
 })
