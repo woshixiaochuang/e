@@ -135,16 +135,16 @@ span{
   background-color:yellow;
 }
 #order_lead_time{
-  color: rgb(0, 132, 255);
+  color: #409EFF;
 }
 #birds-order{
   color: white;
-  background-color: rgb(0, 132, 255);
+  background-color: #409EFF;
 }
 #zhunshida{
-  color: rgb(0, 132, 255);
+  color: #409EFF;
   background-color: white;
-  border: 1px solid rgb(0, 132, 255);
+  border: 1px solid #409EFF;
 }
 #shopsName{
   color: black;
