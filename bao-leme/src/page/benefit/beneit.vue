@@ -1,6 +1,9 @@
 <template>
     <div>
       <Aheader :input-name="message"></Aheader>
+      <div>
+        红包
+      </div>
     </div>
 </template>
 
