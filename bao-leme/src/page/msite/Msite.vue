@@ -6,7 +6,8 @@
       <img :src="img" @click="change()" style="width:.31rem;position:absolute;right:.1rem;">
         </div>
          <div class="top" style="height:2.1rem;width:100%;background:white;position: relative;overflow: hidden;"><!--overflow: hidden; -->
-            <div id="lb" @touchstart="slide_l($event)" @touchmove="slide($event)" class="top_center" style="width:200%;height:100%;position: absolute;">
+            <v-touch v-on:swipeleft="swiperleft()" v-on:swiperight="swiperight()">
+            <div id="lb" class="top_center" style="width:200%;height:100%;position: absolute;left:0">
                 <ul class="center" style="width:100%;height:1.9rem;overflow: hidden;">
                     <li @click="changeshopping()" class="center_l" v-for="(item,index) in title" :key="index">
                       <img class="title_img" :src="'https://fuss10.elemecdn.com'+item.image_url" alt="">
@@ -14,12 +15,14 @@
                       </li>  
                 </ul>
             </div>
+            </v-touch>
              <div class="dot">
-                      <div></div>
-                      <div></div>
+                      <div id="dot_l" style="background:#0474f5f1"></div>
+                      <div id="dot_r"></div>
                   </div>
+            
         </div>
-      <div>
+      <div style="margin-top:.2rem;background:white">
        <shoppingLie></shoppingLie>
       </div>
         <footers></footers>
@@ -28,6 +31,7 @@
 
 <script>
 //elm.cangdu.org/img/164ad0b6a3917599.jpg
+   const Lb = document.getElementById("lb");
 import imgs from "../../images/default.png";
 import footers from "../../components/footer/footGuide.vue";
 import shoppingLie from "../../components/shop/children/shopsLiebiao"
@@ -76,24 +80,23 @@ export default {
         obj[4]=x;obj[5]=z;obj[6]=d;obj[7]=t;
         return obj
     },
-    dot(){
-    console.log(this)
-    },
     changeshopping(){
       this.$router.push({name:"shopsLiebiao"})
     },
-    slide(ev){
-     let lb = document.getElementById("lb");
-      this.leftchange = ev.touches[0].clientX;
-      let change = this.leftchange - this.leftd;
-      if(change > 0){
-
-      }else if(change < 0){
-
-      }
+    swiperleft(){
+      let dw = (lb.offsetWidth)/2;
+      setTimeout(function(){
+        lb.style.left = -dw + "px";
+        dot_l.style.background = "#eaf0f0f1";
+        dot_r.style.background = "#0474f5f1"
+      },20)
     },
-    slide_l(ev){
-      this.leftd = ev.touches[0].clientX;
+    swiperight(){
+      setTimeout(function(){
+      lb.style.left = 0 + "px";
+      dot_l.style.background = "#0474f5f1";
+      dot_r.style.background = "#eaf0f0f1"
+      },20)
     }
   },
   
@@ -108,6 +111,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  
 }
 .center{
     display: flex;
@@ -153,5 +157,8 @@ padding: .15rem;
 }
 .shopping_img{
   width: .7rem;
+}
+#lb{
+  transition: all 2s;
 }
 </style>
