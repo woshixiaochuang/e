@@ -23,6 +23,7 @@ import Searchaddress from "../page/confirmOrder/children/children/children/searc
 import Order from "../page/order/order"
 import Vipcard from "../page/vipcard/vipcard.vue"
 import Payment from "../page/confirmOrder/children/payment.vue"
+import Benefit from "../page/benefit/beneit"
 Vue.use(Router)
 
 export default new Router({
@@ -130,6 +131,10 @@ export default new Router({
      { path: '/shopsLiebiao/shopdetail',
       name:"shopdetail",
       component: shopdetail
+    },
+    {
+      path:'/benefit',
+      component:Benefit
     }
   ]
 })
