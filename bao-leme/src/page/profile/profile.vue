@@ -34,13 +34,11 @@
                </router-link>
             </el-col> 
            <el-col :span='8'>
-             <router-link to="benefit">
                <div>
                <p class="balance red">0个</p>
                <br>
                <p>我的优惠</p>
                </div>
-             </router-link>
            </el-col>
            <el-col :span='8'>
                <router-link to="/points">
