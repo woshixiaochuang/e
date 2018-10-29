@@ -7,8 +7,10 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from "axios";
 import VueAxios from "vue-axios";
+import VueTouch from 'vue-touch'
 //引入vuex封装模块
 import store from "./store"
+Vue.use(VueTouch, {name: 'v-touch'})
 Vue.use(VueAxios,axios);
 Vue.use(ElementUI);
 Vue.config.productionTip = false
