@@ -1,10 +1,12 @@
 <template>
     <div>
       <Aheader :input-name="message"></Aheader>
+
       <div class="titles">
-       <span class="title">红包</span>
-        <span class="title">商家代金券</span>
+       <span class="title" @click="show=true">红包</span>
+        <span class="title" @click="show=false">商家代金券</span>
       </div>
+      <div v-if="show">
         <div style="width: 100%;overflow: hidden;">
           <span style=" float:left;padding:.1rem">有3个红包即将到期</span>
           <router-link to="/benefit/hbDescription">
@@ -32,8 +34,19 @@
         <router-link to="/benefit/exchange">
         <span>兑换红包</span>
         </router-link>
+        <router-link  to="/benefit/commend">
         <span>推荐有奖</span>
+        </router-link>
       </div>
+      </div>
+      <div v-else style="overflow: hidden;text-align: center">
+        <p style="float: right;color: blue;font-size: .15rem;padding: .1rem">代金券说明</p>
+        <p style="margin-top: 2rem;font-size: .3rem">无法使用代金券</p>
+        <router-link to="/download">
+        <button class="con">下载客户端</button>
+        </router-link>
+      </div>
+
     </div>
 </template>
 
@@ -48,7 +61,8 @@
       data(){
           return{
             message:"我的优惠",
-            onsale:[]
+            onsale:[],
+            show:true
           }
       },
       created(){
@@ -104,5 +118,16 @@
     width:40%;
     text-align: center;
     padding: 4%;
+  }
+  .con{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: .2rem;
+    background-color: #00FA9A;
+    color: #fff;
+    height: .5rem;
+    border-radius: .05rem;
+    outline: none;
+    font-size: .3rem;
   }
 </style>
