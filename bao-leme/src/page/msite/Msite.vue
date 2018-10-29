@@ -5,8 +5,8 @@
       <div style=" text-align:center;"><span style="font-size:.2rem; font-weight: bolder;color:white">{{name}}</span></div>
       <img :src="img" @click="change()" style="width:.31rem;position:absolute;right:.1rem;">
         </div>
-        <div class="top" style="height:2.1rem;width:100%;background:white;position: relative;overflow: hidden;">
-            <div class="top_center" style="width:200%;height:100%;position: absolute;">
+         <div class="top" style="height:2.1rem;width:100%;background:white;position: relative;overflow: hidden;"><!--overflow: hidden; -->
+            <div id="lb" @touchstart="slide_l($event)" @touchmove="slide($event)" class="top_center" style="width:200%;height:100%;position: absolute;">
                 <ul class="center" style="width:100%;height:1.9rem;overflow: hidden;">
                     <li @click="changeshopping()" class="center_l" v-for="(item,index) in title" :key="index">
                       <img class="title_img" :src="'https://fuss10.elemecdn.com'+item.image_url" alt="">
@@ -45,7 +45,9 @@ export default {
       geohash: "",
       img: imgs,
       title:"",
-      shopping:""
+      shopping:"",
+      leftchange:"",
+      leftd:""
     };
   },
   created() {
@@ -66,7 +68,7 @@ export default {
   },
   methods: {
     change() {
-      this.$router.push({ name: "profile" });
+      this.$router.push({name:"profile"});
     },
     shoppingTitle(obj){
         let x = obj[8];let z = obj[9];let d = obj[10];let t = obj[11];
@@ -79,6 +81,19 @@ export default {
     },
     changeshopping(){
       this.$router.push({name:"shopsLiebiao"})
+    },
+    slide(ev){
+     let lb = document.getElementById("lb");
+      this.leftchange = ev.touches[0].clientX;
+      let change = this.leftchange - this.leftd;
+      if(change > 0){
+
+      }else if(change < 0){
+
+      }
+    },
+    slide_l(ev){
+      this.leftd = ev.touches[0].clientX;
     }
   },
   
