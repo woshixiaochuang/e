@@ -11,9 +11,9 @@
           </div>
           <div class="shop-informations">
           <div class="shop-informations-top">
-            <span class="pinpai">品牌</span>
+            <span  class="pinpai" v-if="item.is_premium">品牌</span>
             <span id="shopsName">{{item.name}}</span>
-            <span class="informations-right">保准票</span>
+            <span class="informations-right" v-for="(item1,index) in item.supports" :key="index">{{item1.icon_name}}</span>
           </div>
           <div class="shop-informations-center">          
               <span id="star"><el-rate
@@ -42,18 +42,40 @@
 <script>
 import {score} from 'element-ui';
 export default {
+  props:[
+    "id","obj","order","psid"
+  ],
   name: "shops",
   data() {
     return {
-      data: []
+      data: [],
+      latitude:localStorage.latitude,
+      longitude:localStorage.longitude,
+      order_by:5
     };
   },
   created(){
-    let api = "https://elm.cangdu.org/shopping/restaurants?latitude=31.22967&longitude=121.4762";
+    let api = "/api/shopping/restaurants?latitude="+this.latitude+"&longitude="+this.longitude+"&order_by="+this.order_by;
     this.$http.get(api).then((data)=>{
           this.data = data.data;
         });
-      }
+  },
+  watch:{
+    order(){
+      console.log("变了"+this.order)
+    },
+    obj(){
+      let s = [...this.obj].splice(0)
+      console.log(s)
+      console.log("变了"+s)
+    },
+    id(){
+      console.log("变了"+this.id)
+    },
+    psid(){
+      console.log("变了"+this.psid)
+    }
+  }
 };
 </script>
 

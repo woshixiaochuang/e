@@ -55,7 +55,7 @@
         </div>
     </div>
     <div style="background:white">
-    <shoppingLie :id="id" :obj ="obj" :order="order_by"></shoppingLie>
+    <shoppingLie :id="id" :obj ="obj" :order="order_by" :psid="psid"></shoppingLie>
     </div>
 </div> 
 </template>
@@ -217,10 +217,6 @@ export default {
     },
 
     confirm() {
-      if (this.give == false) {
-          this.psid = 1
-         this.obj.push(this.psid)
-      }
       if (this.classshopping[0] == false) {
               this.px1 = 1
              this.obj.push(1) 
@@ -244,11 +240,15 @@ export default {
       if (this.classshopping[5] == false) {
             this.px6 = 6
              this.obj.push(6) 
+      };
+      if (this.give == false) {
+          this.psid = 1
+      }else{
+        this.psid = 0
       }
-        console.log(this.obj)
-        console.log(this.psid)
+      this.screen = false;
     },
-
+    
   }
 };
 </script>
