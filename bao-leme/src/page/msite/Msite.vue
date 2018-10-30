@@ -22,7 +22,8 @@
                   </div>
             
         </div>
-      <div style="margin-top:.2rem;background:white">
+      <div style="margin-top:.2rem;background:white;position:relative">
+        <p><img style="width:.2rem;position:absolute;top:.05rem;left:.1rem" :src="msg" alt=""><span style="font-size:.14rem;position:absolute;top:.1rem;left:.25rem">附件商家</span></p>
        <shoppingLie></shoppingLie>
       </div>
         <footers></footers>
@@ -34,7 +35,8 @@
    const Lb = document.getElementById("lb");
 import imgs from "../../images/default.png";
 import footers from "../../components/footer/footGuide.vue";
-import shoppingLie from "../../components/shop/children/shopsLiebiao"
+import shoppingLie from "../../components/shop/children/shopsLiebiao";
+import Shoppingimgs from "../../images/Msiteshopping.png"
 export default {
   name: "msite",
   components: {
@@ -51,7 +53,8 @@ export default {
       title:"",
       shopping:"",
       leftchange:"",
-      leftd:""
+      leftd:"",
+      msg:Shoppingimgs
     };
   },
   created() {
