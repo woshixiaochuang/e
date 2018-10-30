@@ -2,14 +2,14 @@
     <div>
         <div id="box">
       <router-link id="ele"  :to="{name:'search'}"><i class="el-icon-search" style="position:absolute;left:.1rem;font-size:.2rem;font-weight: bolder;color:white"></i></router-link>
-      <div style=" text-align:center;"><span style="font-size:.2rem; font-weight: bolder;color:white">{{name}}</span></div>
+      <div style=" text-align:center;"><span @click="city()" style="font-size:.2rem; font-weight: bolder;color:white">{{name}}</span></div>
       <img :src="img" @click="change()" style="width:.31rem;position:absolute;right:.1rem;">
         </div>
          <div class="top" style="height:2.1rem;width:100%;background:white;position: relative;overflow: hidden;"><!--overflow: hidden; -->
             <v-touch v-on:swipeleft="swiperleft()" v-on:swiperight="swiperight()">
             <div id="lb" class="top_center" style="width:200%;height:100%;position: absolute;left:0">
                 <ul class="center" style="width:100%;height:1.9rem;overflow: hidden;">
-                    <li @click="changeshopping()" class="center_l" v-for="(item,index) in title" :key="index">
+                    <li @click="changeshopping(item.title)" class="center_l" v-for="(item,index) in title" :key="index">
                       <img class="title_img" :src="'https://fuss10.elemecdn.com'+item.image_url" alt="">
                       {{item.title}}
                       </li>  
@@ -63,7 +63,6 @@ export default {
       "&order_by=5";
       this.axios.get(api).then(data => {
       this.shopping=data.data;
-      console.log(this.shopping)
     });
     let api1 = "/api/v2/index_entry";
     this.axios.get(api1).then(data =>{
@@ -80,8 +79,12 @@ export default {
         obj[4]=x;obj[5]=z;obj[6]=d;obj[7]=t;
         return obj
     },
-    changeshopping(){
-      this.$router.push({name:"shopsLiebiao"})
+    changeshopping(title){
+      this.$router.push({name:"foot",
+      params:{
+        title:title
+      }
+      })
     },
     swiperleft(){
       let dw = (lb.offsetWidth)/2;
@@ -97,6 +100,10 @@ export default {
       dot_l.style.background = "#0474f5f1";
       dot_r.style.background = "#eaf0f0f1"
       },20)
+    },
+    city(){
+      this.$router.push({path:"/city/"+localStorage.city_id})
+      
     }
   },
   
