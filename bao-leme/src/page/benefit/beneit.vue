@@ -46,26 +46,33 @@
         <button class="con">下载客户端</button>
         </router-link>
       </div>
-
+      <load v-if="cartoon != 1"></load>
     </div>
 </template>
 
 <script>
+  import load from "../../components/common/loading"
   import Aheader from "../../components/header/header";
 
     export default {
         name: "beneit",
       components:{
-          Aheader
+          Aheader,
+        load
       },
       data(){
           return{
             message:"我的优惠",
             onsale:[],
-            show:true
+            show:true,
+            cartoon:1,
           }
       },
+      // beforeCreate(){
+      //
+      // },
       created(){
+        this.cartoon = this.cartoon-1
           let api = "https://elm.cangdu.org/promotion/v2/users/"+localStorage.user_id+"/hongbaos?limit=20&offset=0"
         this.axios({
           url:api,
@@ -74,7 +81,8 @@
         }).then(
           data=>{
            this.onsale = data.data;
-           console.log(this.onsale);
+           console.log("---------");
+           this.cartoon = this.cartoon+1;
           }
         )
       }
