@@ -24,7 +24,6 @@ import Order from "../page/order/order"
 import Vipcard from "../page/vipcard/vipcard.vue"
 import Payment from "../page/confirmOrder/children/payment.vue"
 import Benefit from "../page/benefit/beneit"
-import Foot from "../page/foot/foot"
 import hbDescription from "../page/benefit/children/hbDescription"
 import hbHistory from "../page/benefit/children/hbHistory"
 import Exchange from "../page/benefit/children/exchange"
@@ -142,12 +141,6 @@ export default new Router({
       path:'/benefit',
       component:Benefit
     },
-    //foot
-    {
-      path:'/foot',
-      name:"foot",
-      component:Foot
-    },  
     {
       path:'/benefit/hbDescription',
       component:hbDescription

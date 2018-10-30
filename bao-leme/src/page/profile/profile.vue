@@ -69,9 +69,11 @@
                  <i class="el-icon-arrow-right"></i>
              </div>
              <div>
+               <router-link to="/download">
                 <img src="../../images/app.png"> 
                 <span>下载饿了么</span>
                  <i class="el-icon-arrow-right"></i>
+               </router-link>
              </div>
          </div>
     </div>

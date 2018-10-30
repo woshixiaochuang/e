@@ -25,11 +25,6 @@ import Vipcard from "../page/vipcard/vipcard.vue"
 import Payment from "../page/confirmOrder/children/payment.vue"
 import Benefit from "../page/benefit/beneit"
 import Foot from "../page/foot/foot"
-import hbDescription from "../page/benefit/children/hbDescription"
-import hbHistory from "../page/benefit/children/hbHistory"
-import Exchange from "../page/benefit/children/exchange"
-import Commend from "../page/benefit/children/commend"
-import Download from "../page/download/download"
 Vue.use(Router)
 
 export default new Router({
@@ -147,25 +142,10 @@ export default new Router({
       path:'/foot',
       name:"foot",
       component:Foot
-    },  
-    {
-      path:'/benefit/hbDescription',
-      component:hbDescription
-    },
-    {
-      path:"/benefit/hbHistory",
-      component:hbHistory
-    },
-    {
-      path:"/benefit/exchange",
-      component:Exchange
-    },{
-    path:"/benefit/commend",
-      component:Commend
-    },
-    {
-      path:"/download",
-      component:Download
+
+
+
+      
     }
   ]
 })
