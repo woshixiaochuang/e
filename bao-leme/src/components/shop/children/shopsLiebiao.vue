@@ -1,8 +1,7 @@
 <template>
   <div class="shops">
     <div class="shopsTop">
-      <img class="shopTop-img" src="../../../../static/imgs/download.jpg" alt="">
-      <span class="nearbyShops">附近商家</span>
+      <img class="shopTop-img" src="" alt="">
     </div>
     <div class="shopListings">
        <div class="shop-content" v-for="(item,index) in data" :key="index">

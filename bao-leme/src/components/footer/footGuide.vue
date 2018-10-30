@@ -2,7 +2,7 @@
 <div>
     <div class="bottom">
         <div v-for="(img,index) in imgs" :key="index">
-          <router-link :to="'/'+img.name">
+          <router-link :to="{name:img.name}">
             <img :src="img.img" alt="">
             <ol>
             <li>{{img.title}}</li>
@@ -40,6 +40,7 @@ export default {
   position: fixed;
   left: 0;
   bottom: 0;
+  background:white
 }
 .bottom > div {
   width: 25%;

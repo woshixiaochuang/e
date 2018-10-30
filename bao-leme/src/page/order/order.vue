@@ -1,7 +1,7 @@
 <template>
     <div>
       <Aheader :input-name="message"></Aheader>
-      <div class="shop" v-for="(item,index) in order">
+      <div class="shop" v-for="(item,index) in order" :key="index">
         <div class="order" style="overflow: hidden;">
           <img style="float: left" src="../../images/default.png">
           <div style="width:50%;float: left">
@@ -41,6 +41,7 @@ components:{
   }
   },
   created(){
+    if(localStorage.user_id){
   let api = "https://elm.cangdu.org/bos/v2/users/"+localStorage.user_id+"/orders?limit=10&offset=0"
     this.axios.get(api).then(
       data=>{
@@ -48,6 +49,9 @@ components:{
         console.log(this.order);
       }
     )
+    }else{
+      alert("请登录")
+    }
   }
 }
 </script>
