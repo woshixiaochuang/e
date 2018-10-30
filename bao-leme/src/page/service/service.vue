@@ -2,8 +2,8 @@
     <div>
       <Aheader :input-name="message"></Aheader>
       <ul>
-        <li v-for="(item,index) in questions" :key="index">
-          {{item}}
+        <li class="question" v-for="(item,index) in questions" :key="index">
+          {{item}}<i class="el-icon-arrow-right"></i>
         </li>
       </ul>
     </div>
@@ -34,5 +34,13 @@
 </script>
 
 <style scoped>
-
+.question{
+  width: 96%;
+  padding: 2%;
+  background-color: #fff;
+}
+  .el-icon-arrow-right{
+    position: absolute;
+    right: .1rem;
+  }
 </style>
