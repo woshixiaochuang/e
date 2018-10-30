@@ -47,6 +47,7 @@
                show:true
            }
        },
+
        created() {
            let api = "https://elm.cangdu.org/v1/user";
            this.axios({
@@ -55,7 +56,7 @@
                  withCredentials: true
            }).then(
                data=>{
-                   console.log(data.data);
+                   console.log(data.ata);
                    this.username=data.data.username
                }
            )

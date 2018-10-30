@@ -63,11 +63,13 @@
              </div>
          </div>
          <div  class="subtitle second" >
+           <router-link to="/service">
               <div>
                 <img src="../../images/service.png"> 
                 <span>服务中心</span>
                  <i class="el-icon-arrow-right"></i>
              </div>
+           </router-link>
              <div>
                <router-link to="/download">
                 <img src="../../images/app.png"> 

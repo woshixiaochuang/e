@@ -31,6 +31,7 @@ import Exchange from "../page/benefit/children/exchange"
 import Commend from "../page/benefit/children/commend"
 import Download from "../page/download/download"
 import Coupon from "../page/benefit/children/coupon"
+import Service from  "../page/service/service"
 Vue.use(Router)
 
 export default new Router({
@@ -172,5 +173,9 @@ export default new Router({
       path:"/benefit/coupon",
       component:Coupon
     },
+    {
+      path:"/service",
+      component:Service
+    }
   ]
 })
