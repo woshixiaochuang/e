@@ -24,15 +24,12 @@ import Order from "../page/order/order"
 import Vipcard from "../page/vipcard/vipcard.vue"
 import Payment from "../page/confirmOrder/children/payment.vue"
 import Benefit from "../page/benefit/beneit"
-<<<<<<< HEAD
 import Foot from "../page/foot/foot"
-=======
 import hbDescription from "../page/benefit/children/hbDescription"
 import hbHistory from "../page/benefit/children/hbHistory"
 import Exchange from "../page/benefit/children/exchange"
 import Commend from "../page/benefit/children/commend"
 import Download from "../page/download/download"
->>>>>>> f55a3316b1087a7e994c9590d8b0e409b05ee7a3
 Vue.use(Router)
 
 export default new Router({
@@ -145,17 +142,15 @@ export default new Router({
       path:'/benefit',
       component:Benefit
     },
-<<<<<<< HEAD
     //foot
     {
       path:'/foot',
       name:"foot",
-      component:Foot
+      component:Foot},
 
 
 
       
-=======
     {
       path:'/benefit/hbDescription',
       component:hbDescription
@@ -174,7 +169,6 @@ export default new Router({
     {
       path:"/download",
       component:Download
->>>>>>> f55a3316b1087a7e994c9590d8b0e409b05ee7a3
     }
   ]
 })
