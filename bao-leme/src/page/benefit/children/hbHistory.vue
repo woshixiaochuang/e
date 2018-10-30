@@ -12,23 +12,28 @@
           <span style="padding: .1rem">已过期</span>
         </div>
       </div>
+      <load v-if="cartoon != 1"></load>
     </div>
 </template>
 
 <script>
   import Aheader from "../../../components/header/header";
+  import load from "../../../components/common/loading"
     export default {
         name: "hbHistory",
       components:{
-          Aheader
+          Aheader,
+        load
       },
       data(){
           return{
             message:"历史红包",
-            hbHistory:[]
+            hbHistory:[],
+            cartoon:1
           }
       },
       created(){
+          this.cartoon = this.cartoon-1;
         let api = "https://elm.cangdu.org/promotion/v2/users/"+localStorage.user_id+"/expired_hongbaos?limit=20&offset=0"
         this.axios({
           url:api,
@@ -37,7 +42,7 @@
         }).then(
           data=>{
             this.hbHistory = data.data;
-            console.log(this.hbHistory);
+            this.cartoon = this.cartoon+1;
           }
         )
       }

@@ -30,6 +30,7 @@ import hbHistory from "../page/benefit/children/hbHistory"
 import Exchange from "../page/benefit/children/exchange"
 import Commend from "../page/benefit/children/commend"
 import Download from "../page/download/download"
+import Coupon from "../page/benefit/children/coupon"
 Vue.use(Router)
 
 export default new Router({
@@ -166,6 +167,10 @@ export default new Router({
     {
       path:"/download",
       component:Download
-    }
+    },
+    {
+      path:"/benefit/coupon",
+      component:Coupon
+    },
   ]
 })

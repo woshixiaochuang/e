@@ -40,7 +40,9 @@
       </div>
       </div>
       <div v-else style="overflow: hidden;text-align: center">
+        <router-link to="/benefit/coupon">
         <p style="float: right;color: blue;font-size: .15rem;padding: .1rem">代金券说明</p>
+        </router-link>
         <p style="margin-top: 2rem;font-size: .3rem">无法使用代金券</p>
         <router-link to="/download">
         <button class="con">下载客户端</button>

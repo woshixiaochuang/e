@@ -36,7 +36,7 @@
            <el-col :span='8'>
              <router-link to="benefit">
                <div>
-               <p class="balance red">0个</p>
+               <p class="balance red">3个</p>
                <br>
                <p>我的优惠</p>
                </div>
@@ -105,7 +105,6 @@ export default {
   },
   created() {
       let n = localStorage.username;
-
     if (n) {
       this.username = n;
       this.link = "/profile/info"
