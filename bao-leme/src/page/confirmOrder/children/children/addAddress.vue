@@ -68,6 +68,7 @@ export default {
            );
            this.address = this.$route.query.address;
            this.geohash = this.$route.query.geohash;
+           this.$store.state.geohash = this.geohash;
   },
   methods:{
       add(){

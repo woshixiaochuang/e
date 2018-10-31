@@ -40,8 +40,8 @@ export default {
         withCredentials: true, // 默认的
         }).then(
               data=>{
-                  console.log(data.data);
                   this.site = data.data;
+                  console.log(this.site)
                   }
           )
       },
