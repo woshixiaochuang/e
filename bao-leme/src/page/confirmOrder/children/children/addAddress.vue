@@ -3,7 +3,7 @@
         <aheader :input-name="message"></aheader>
      <ul>
               <li class="input">
-                  <input class="input_1" type="text" placeholder="请填写你的姓名" v-model="name">
+                  <input class="input_1" type="text" placeholder="请填写你的姓名" v-model="name" @keyup="save">
               </li>
               <router-link to="/profile/info/address/add/addDetail">
               <li class="input">
@@ -68,6 +68,8 @@ export default {
            );
            this.address = this.$route.query.address;
            this.geohash = this.$route.query.geohash;
+           this.$store.state.geohash = this.geohash;
+           this.name = localStorage.name;
   },
   methods:{
       add(){
@@ -87,16 +89,20 @@ export default {
                   phone_bk:this.phone_bk,
                   tag_type:this.tag_type
               }
-          }).then(
-             this.$router.push({
-                 path:"/profile/info/address",
-                 query:{
-                     address:this.address,
-                     phone:this.phone
-                 }
-             })
-          )
-      }
+          }).then(()=>{
+            this.$router.push({
+              path:"/profile/info/address",
+              query:{
+                address:this.address,
+                phone:this.phone
+              }
+            })
+          })
+      },
+    save(){
+        localStorage.setItem("name",this.name)
+      console.log(localStorage.name)
+    }
   }
 };
 </script>
