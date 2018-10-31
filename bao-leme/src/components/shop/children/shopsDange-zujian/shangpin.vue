@@ -24,6 +24,7 @@
           <p>{{k.description}}</p>
           <p>{{k.tips}}</p>
         </div>
+        <p class="add"><i class="el-icon-circle-plus"></i><span>0</span><i class="el-icon-remove"></i></p>
       </div>
       </div>
     </div>
@@ -113,6 +114,7 @@ export default {
   border-bottom: 0.01rem solid gainsboro;
   overflow: hidden;
   padding: 0.1rem;
+  position: relative;
 }
 .hotscore-information{
   float: left;
@@ -130,5 +132,16 @@ export default {
 }
 .hotscore-information p{
   margin-top: 0.1rem;
+}
+.add{
+  position: absolute;
+  right:.1rem;
+  top:60%;
+  /* border:1px solid red; */
+  display: flex;
+  justify-content:space-around
+}
+.add span{
+  margin: 0;
 }
 </style>

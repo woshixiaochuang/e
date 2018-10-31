@@ -1,6 +1,9 @@
 <template>
 <div id="foot">
-    <Aheaders :inputName="name"></Aheaders>
+    <div id="box">
+      <router-link id="ele"  :to="{name:'msite'}"><i class="el-icon-arrow-left" style="position:absolute;left:.1rem;font-size:.2rem;font-weight: bolder;color:white"></i></router-link>
+      <div style=" text-align:center;"><span style="font-size:.2rem; font-weight: bolder;color:white">{{name}}</span></div>
+      </div>
     <div>
         <ul class="class">
             <li @click="change(0)">{{name}} <i class="el-icon-caret-bottom"></i></li>
@@ -262,6 +265,14 @@ export default {
 </script>
 
 <style scoped>
+#box {
+  background-color: #0474f5f1;
+  height: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
 .class {
   background: white;
   display: flex;
