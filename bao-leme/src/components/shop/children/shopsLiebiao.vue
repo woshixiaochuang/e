@@ -54,7 +54,6 @@ export default {
     };
   },
   created() {
-    console.log(this.psid);
     let api =
       "/api/shopping/restaurants?latitude=" +
       this.latitude +
@@ -68,7 +67,6 @@ export default {
   },
   watch: {
     order() {
-      console.log("变了" + this.order);
        let api =
       "/api/shopping/restaurants?latitude=" +
       this.latitude +
@@ -82,7 +80,6 @@ export default {
     },
     obj() {
       let s = [...this.obj];
-      console.log(s);
       if (s.length == 0) {
         let api1 =
           "/api/shopping/restaurants?latitude=" +
@@ -170,7 +167,6 @@ export default {
       }
     },
     id() {
-      console.log("变了" + this.id);
        let api =
       "/api/shopping/restaurants?latitude=" +
       this.latitude +

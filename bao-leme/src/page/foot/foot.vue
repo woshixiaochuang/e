@@ -11,7 +11,9 @@
     <div id="center">
         <div style="position:absolute;background:gray;top:0;left:0;width:100%;z-index:1;opacity:.9;">
             <ul v-show="centerul" id="classshoping" v-for="(item,index) in shoppingclass" :key="index" style="overflow: hidden;width:100%;padding-top:.1rem">
-                <h1 class="h1" @click="classshopingli(index)" style="color:white;font-size:.2rem;float: left;width:50%;height:.4rem"><img style="width:.3rem;height:.3rem" :src="'https://fuss10.elemecdn.com/'+item.image_url+(item.image_url.indexOf('png')!=-1?'.png':'.jpeg')" alt=""><span>{{item.name}}</span> <span style="font-size:.12rem;background:#4b525213;color:white;padding:.05rem;border-radius:.5rem">{{item.count}}</span><i class="el-icon-arrow-right"></i></h1>
+                <h1 class="h1" @click="classshopingli(index)" style="color:white;font-size:.2rem;float: left;width:50%;height:.4rem">
+                  <img style="width:.3rem;height:.3rem" :src="'https://fuss10.elemecdn.com/'+item.image_url+imgurl(item.image_url)" alt=""><span>{{item.name}}</span>
+                 <span style="font-size:.12rem;background:#4b525213;color:white;padding:.05rem;border-radius:.5rem">{{item.count}}</span><i class="el-icon-arrow-right"></i></h1>
                  <div class="shoppingchilder" style="position:absolute;top:0;right:0;display:none;width:50%;height:100%">
                  <li style="height:.3rem;font-size:.16rem;display: flex;justify-content: center;flex-direction: column;height:.3rem;text-align: center;border-bottom:.02rem solid gray" v-for="(itemclass,index) in item.sub_categories" :key="(index-1)">
                     <p @click="centerp(itemclass.id)" style="display: flex;justify-content: space-around;"><span>{{itemclass.name}}</span><span>{{itemclass.count}}</span></p>
@@ -185,7 +187,6 @@ export default {
       }
     },
     classshopingli(index) {
-      console.log(index);
       for (var i = 0; i < shoppingchilder.length; i++) {
         if (i == index) {
           shoppingchilder[index].style.display = "block";
@@ -197,12 +198,10 @@ export default {
       }
     },
     centerp(id) {
-      console.log(id);
       this.centerul = false;
       this.id = id;
     },
     sorts(order) {
-      console.log(order);
       this.sort = false;
       this.order_by = order;
     },
@@ -248,9 +247,16 @@ export default {
         this.psid = 0
       };
       this.screen = false;
-      console.log(this.give)
     },
-    
+    imgurl(data){
+      if(data.indexOf("jpeg") != -1){
+        return ".jpeg";
+      }else if(data.indexOf("png") != -1){
+        return ".png";
+      }else{
+        return ""
+      }
+    }
   }
 };
 </script>
