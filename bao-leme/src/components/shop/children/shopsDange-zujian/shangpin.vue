@@ -49,7 +49,7 @@ export default {
     let api = "https://elm.cangdu.org/shopping/v2/menu?restaurant_id="+id;
     this.$http.get(api).then((data)=>{
       this.data=data.data.splice(0,7);
-      // console.log(data)
+      console.log(this.data)
     })
   }
 }

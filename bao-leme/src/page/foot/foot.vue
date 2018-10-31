@@ -11,7 +11,9 @@
     <div id="center">
         <div style="position:absolute;background:gray;top:0;left:0;width:100%;z-index:1;opacity:.9;">
             <ul v-show="centerul" id="classshoping" v-for="(item,index) in shoppingclass" :key="index" style="overflow: hidden;width:100%;padding-top:.1rem">
-                <h1 class="h1" @click="classshopingli(index)" style="color:white;font-size:.2rem;float: left;width:50%;height:.4rem"><img style="width:.3rem;height:.3rem" :src="'https://fuss10.elemecdn.com/'+item.image_url+(item.image_url.indexOf('png')!=-1?'.png':'.jpeg')" alt=""><span>{{item.name}}</span> <span style="font-size:.12rem;background:#4b525213;color:white;padding:.05rem;border-radius:.5rem">{{item.count}}</span><i class="el-icon-arrow-right"></i></h1>
+                <h1 class="h1" @click="classshopingli(index)" style="color:white;font-size:.2rem;float: left;width:50%;height:.4rem">
+                  <img style="width:.3rem;height:.3rem" :src="'https://fuss10.elemecdn.com/'+item.image_url+imgurl(item.image_url)" alt=""><span>{{item.name}}</span>
+                 <span style="font-size:.12rem;background:#4b525213;color:white;padding:.05rem;border-radius:.5rem">{{item.count}}</span><i class="el-icon-arrow-right"></i></h1>
                  <div class="shoppingchilder" style="position:absolute;top:0;right:0;display:none;width:50%;height:100%">
                  <li style="height:.3rem;font-size:.16rem;display: flex;justify-content: center;flex-direction: column;height:.3rem;text-align: center;border-bottom:.02rem solid gray" v-for="(itemclass,index) in item.sub_categories" :key="(index-1)">
                     <p @click="centerp(itemclass.id)" style="display: flex;justify-content: space-around;"><span>{{itemclass.name}}</span><span>{{itemclass.count}}</span></p>
@@ -55,7 +57,7 @@
         </div>
     </div>
     <div style="background:white">
-    <shoppingLie :id="id" :obj ="obj" :order="order_by"></shoppingLie>
+    <shoppingLie :id="id" :obj ="obj" :order="order_by" :psid="psid"></shoppingLie>
     </div>
 </div> 
 </template>
@@ -185,7 +187,6 @@ export default {
       }
     },
     classshopingli(index) {
-      console.log(index);
       for (var i = 0; i < shoppingchilder.length; i++) {
         if (i == index) {
           shoppingchilder[index].style.display = "block";
@@ -197,12 +198,10 @@ export default {
       }
     },
     centerp(id) {
-      console.log(id);
       this.centerul = false;
       this.id = id;
     },
     sorts(order) {
-      console.log(order);
       this.sort = false;
       this.order_by = order;
     },
@@ -211,44 +210,53 @@ export default {
     },
     clearfalse() {
       this.give = true;
+      this.obj = [];
       for (var key in this.classshopping) {
           this.classshopping[key] = true;
       }
     },
 
     confirm() {
-      if (this.give == false) {
-          this.psid = 1
-         this.obj.push(this.psid)
-      }
       if (this.classshopping[0] == false) {
-              this.px1 = 1
-             this.obj.push(1) 
+              this.px1 = 8
+             this.obj.push(this.px1) 
       }
       if (this.classshopping[1] == false) {
-           this.px2 = 2
-             this.obj.push(2) 
+           this.px2 = 7
+             this.obj.push(this.px2) 
       }
       if (this.classshopping[2] == false) {
-            this.px3 = 3
-             this.obj.push(3) 
+            this.px3 = 9
+             this.obj.push(this.px3) 
       }
       if (this.classshopping[3] == false) {
-            this.px4 = 4
-             this.obj.push(4) 
+            this.px4 = 5
+             this.obj.push(this.px4) 
       }
       if (this.classshopping[4] == false) {
-           this.px5 = 5
-             this.obj.push(5) 
+           this.px5 =3
+             this.obj.push(this.px5) 
       }
       if (this.classshopping[5] == false) {
-            this.px6 = 6
-             this.obj.push(6) 
-      }
-        console.log(this.obj)
-        console.log(this.psid)
+            this.px6 = 4
+             this.obj.push(this.px6) 
+      };
+      if (this.give == false) {
+          this.psid = 1
+      }else{
+        this.psid = 0
+      };
+      this.screen = false;
     },
-
+    imgurl(data){
+      if(data.indexOf("jpeg") != -1){
+        return ".jpeg";
+      }else if(data.indexOf("png") != -1){
+        return ".png";
+      }else{
+        return ""
+      }
+    }
   }
 };
 </script>
