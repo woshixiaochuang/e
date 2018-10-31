@@ -1,7 +1,7 @@
 <template>
 <div class="detailed-information">
     <div class="shopsDetailed-top">
-        <a class="el-icon-arrow-left" id="fanhui" href="http://localhost:8080/#/"></a>
+        <a class="el-icon-arrow-left" id="fanhui" href="http://localhost:8080/#/foot"></a>
         <router-link class="el-icon-arrow-right" id="jiantouOne" :to="{name:'shopdetail',params:{id:$route.params.id}}"></router-link>
         <div class="topImages-mohu">
             <img :src="'https://elm.cangdu.org/img/'+data.image_path" alt="">
