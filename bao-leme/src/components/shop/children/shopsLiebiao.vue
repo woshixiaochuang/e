@@ -40,40 +40,170 @@
 </template>
 
 <script>
-import {score} from 'element-ui';
+import { score } from "element-ui";
 export default {
-  props:[
-    "id","obj","order","psid"
-  ],
+  props: ["id", "obj", "order", "psid"],
   name: "shops",
   data() {
     return {
       data: [],
-      latitude:localStorage.latitude,
-      longitude:localStorage.longitude,
-      order_by:5
+      latitude: localStorage.latitude,
+      longitude: localStorage.longitude,
+      order_by: 5,
+      psids: ""
     };
   },
-  created(){
-    let api = "/api/shopping/restaurants?latitude="+this.latitude+"&longitude="+this.longitude+"&order_by="+this.order_by;
-    this.$http.get(api).then((data)=>{
+  created() {
+    console.log(this.psid);
+    let api =
+      "/api/shopping/restaurants?latitude=" +
+      this.latitude +
+      "&longitude=" +
+      this.longitude +
+      "&order_by=" +
+      this.order_by;
+    this.$http.get(api).then(data => {
+      this.data = data.data;
+    });
+  },
+  watch: {
+    order() {
+      console.log("变了" + this.order);
+       let api =
+      "/api/shopping/restaurants?latitude=" +
+      this.latitude +
+      "&longitude=" +
+      this.longitude +
+      "&order_by=" +
+      this.order;
+    this.$http.get(api).then(data => {
+      this.data = data.data;
+    });
+    },
+    obj() {
+      let s = [...this.obj];
+      console.log(s);
+      if (s.length == 0) {
+        let api1 =
+          "/api/shopping/restaurants?latitude=" +
+          this.latitude +
+          "&longitude=" +
+          this.longitude;
+        this.$http.get(api1).then(data => {
           this.data = data.data;
         });
-  },
-  watch:{
-    order(){
-      console.log("变了"+this.order)
+      } else if (s.length == 1) {
+        let api1 =
+          "/api/shopping/restaurants?latitude=" +
+          this.latitude +
+          "&longitude=" +
+          this.longitude+
+          "&support_ids[]="+s[0];
+        this.$http.get(api1).then(data => {
+          this.data = data.data;
+        });
+      } else if (s.length == 2){
+         let api1 =
+          "/api/shopping/restaurants?latitude=" +
+          this.latitude +
+          "&longitude=" +
+          this.longitude+
+          "&support_ids[]="+s[0]+
+          "&support_ids[]="+s[1];
+        this.$http.get(api1).then(data => {
+          this.data = data.data;
+        });
+      } else if (s.length == 3){
+         let api1 =
+          "/api/shopping/restaurants?latitude=" +
+          this.latitude +
+          "&longitude=" +
+          this.longitude+
+          "&support_ids[]="+s[0]+
+          "&support_ids[]="+s[1]+
+          "&support_ids[]="+s[2];
+        this.$http.get(api1).then(data => {
+          this.data = data.data;
+        });
+      } else if (s.length == 4){
+         let api1 =
+          "/api/shopping/restaurants?latitude=" +
+          this.latitude +
+          "&longitude=" +
+          this.longitude+
+          "&support_ids[]="+s[0]+
+          "&support_ids[]="+s[1]+
+          "&support_ids[]="+s[2]+
+          "&support_ids[]="+s[3]
+        this.$http.get(api1).then(data => {
+          this.data = data.data;
+        });
+      } else if (s.length == 5){
+         let api1 =
+          "/api/shopping/restaurants?latitude=" +
+          this.latitude +
+          "&longitude=" +
+          this.longitude+
+          "&support_ids[]="+s[0]+
+          "&support_ids[]="+s[1]+
+          "&support_ids[]="+s[2]+
+          "&support_ids[]="+s[3]+
+          "&support_ids[]="+s[4];
+        this.$http.get(api1).then(data => {
+          this.data = data.data;
+        });
+      } else if (s.length == 6){
+         let api1 =
+          "/api/shopping/restaurants?latitude=" +
+          this.latitude +
+          "&longitude=" +
+          this.longitude+
+          "&support_ids[]="+s[0]+
+          "&support_ids[]="+s[1]+
+          "&support_ids[]="+s[2]+
+          "&support_ids[]="+s[3]+
+          "&support_ids[]="+s[4]+
+          "&support_ids[]="+s[5];
+        this.$http.get(api1).then(data => {
+          this.data = data.data;
+        });
+      }
     },
-    obj(){
-      let s = [...this.obj].splice(0)
-      console.log(s)
-      console.log("变了"+s)
+    id() {
+      console.log("变了" + this.id);
+       let api =
+      "/api/shopping/restaurants?latitude=" +
+      this.latitude +
+      "&longitude=" +
+      this.longitude +
+      "&restaurant_category_ids[]=" +
+      this.id;
+    this.$http.get(api).then(data => {
+      this.data = data.data;
+    });
     },
-    id(){
-      console.log("变了"+this.id)
-    },
-    psid(){
-      console.log("变了"+this.psid)
+    psid() {
+      if (this.psid == 1) {
+        this.psids = this.psid;
+        let api =
+          "/api/shopping/restaurants?latitude=" +
+          this.latitude +
+          "&longitude=" +
+          this.longitude +
+          "&delivery_mode[]=1";
+        this.$http.get(api).then(data => {
+          this.data = data.data;
+        });
+      } else {
+        let api1 =
+          "/api/shopping/restaurants?latitude=" +
+          this.latitude +
+          "&longitude=" +
+          this.longitude;
+        this.$http.get(api1).then(data => {
+          this.data = data.data;
+        });
+      }
     }
   }
 };
@@ -81,11 +211,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-*{
+* {
   margin: 0;
   padding: 0;
 }
-span{
+span {
   margin-left: 0.1rem;
 }
 .shopTop-img {
@@ -99,75 +229,75 @@ span{
 .shop-Images {
   width: 100%;
 }
-.psmall{
+.psmall {
   font-size: 0.1rem;
   color: gray;
 }
-.el-rate__item{
+.el-rate__item {
   width: 0.0094rem;
 }
-.el-rate__icon{
+.el-rate__icon {
   font-size: 0.1rem;
 }
-.el-rate__text{ 
+.el-rate__text {
   font-size: 0.1rem;
 }
-.shop-content{
+.shop-content {
   overflow: hidden;
   margin-top: 0.2rem;
   padding-bottom: 0.2rem;
   border-bottom: 0.01rem solid ghostwhite;
 }
-.shop-informations-images{
+.shop-informations-images {
   width: 17%;
   float: left;
   margin-left: 0.1rem;
 }
-.shop-informations{
+.shop-informations {
   width: 78%;
   float: left;
   margin-left: 0.01rem;
 }
-.informations-right{
+.informations-right {
   float: right;
   font-size: 0.1rem;
   color: gray;
 }
-.shop-informations-center{
+.shop-informations-center {
   overflow: hidden;
   margin-top: 0.1rem;
 }
-.shop-informations-bottom{
+.shop-informations-bottom {
   overflow: hidden;
   margin-top: 0.1rem;
 }
-#yueshou{
+#yueshou {
   float: left;
 }
-#star{
+#star {
   margin-left: 0;
   float: left;
 }
-.pinpai{
+.pinpai {
   color: black;
   padding-left: 0.05rem;
   padding-right: 0.05rem;
-  font-size:0.1rem;
-  background-color:yellow;
+  font-size: 0.1rem;
+  background-color: yellow;
 }
-#order_lead_time{
-  color: #409EFF;
+#order_lead_time {
+  color: #409eff;
 }
-#birds-order{
+#birds-order {
   color: white;
-  background-color: #409EFF;
+  background-color: #409eff;
 }
-#zhunshida{
-  color: #409EFF;
+#zhunshida {
+  color: #409eff;
   background-color: white;
-  border: 1px solid #409EFF;
+  border: 1px solid #409eff;
 }
-#shopsName{
+#shopsName {
   color: black;
 }
 </style>

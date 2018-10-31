@@ -211,6 +211,7 @@ export default {
     },
     clearfalse() {
       this.give = true;
+      this.obj = [];
       for (var key in this.classshopping) {
           this.classshopping[key] = true;
       }
@@ -218,35 +219,36 @@ export default {
 
     confirm() {
       if (this.classshopping[0] == false) {
-              this.px1 = 1
-             this.obj.push(1) 
+              this.px1 = 8
+             this.obj.push(this.px1) 
       }
       if (this.classshopping[1] == false) {
-           this.px2 = 2
-             this.obj.push(2) 
+           this.px2 = 7
+             this.obj.push(this.px2) 
       }
       if (this.classshopping[2] == false) {
-            this.px3 = 3
-             this.obj.push(3) 
+            this.px3 = 9
+             this.obj.push(this.px3) 
       }
       if (this.classshopping[3] == false) {
-            this.px4 = 4
-             this.obj.push(4) 
+            this.px4 = 5
+             this.obj.push(this.px4) 
       }
       if (this.classshopping[4] == false) {
-           this.px5 = 5
-             this.obj.push(5) 
+           this.px5 =3
+             this.obj.push(this.px5) 
       }
       if (this.classshopping[5] == false) {
-            this.px6 = 6
-             this.obj.push(6) 
+            this.px6 = 4
+             this.obj.push(this.px6) 
       };
       if (this.give == false) {
           this.psid = 1
       }else{
         this.psid = 0
-      }
+      };
       this.screen = false;
+      console.log(this.give)
     },
     
   }
