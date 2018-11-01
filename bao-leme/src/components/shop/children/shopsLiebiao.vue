@@ -64,9 +64,7 @@ export default {
       "&order_by=" +
       this.order_by;
     this.$http.get(api).then(data => {
-      
       this.data = data.data;
-      console.log(this.data)
     });
   },
   watch: {
