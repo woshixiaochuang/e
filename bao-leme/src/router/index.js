@@ -31,6 +31,8 @@ import Commend from "../page/benefit/children/commend"
 import Download from "../page/download/download"
 import Coupon from "../page/benefit/children/coupon"
 import Service from  "../page/service/service"
+import Invoice from "../components/shop/children/invoice"
+import Remark from "../components/shop/children/remark"
 Vue.use(Router)
 
 export default new Router({
@@ -170,6 +172,18 @@ export default new Router({
     {
       path:"/service",
       component:Service
-    }
+    },
+    //发票页
+    {
+      path:"/invoice",
+      name:"invoice",
+      component:Invoice
+    },
+    //备注页
+    {
+      path:"/remark",
+      name:"remark",
+      component:Remark
+    },
   ]
 })
