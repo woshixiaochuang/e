@@ -8,7 +8,8 @@ export default{
       this.state.en.filter(num => id == num.foods[0].specfoods[0].food_id)[0].foods[0].specfoods[0].count++;
       // 过滤添加的商品
       this.state.arr= this.state.en.filter(num => num.foods[0].specfoods[0].count !=0);
-      console.log(id)
+      console.log(id);
+      console.log(this.state.arr);
       // 计算价格
       var sumValue = 0;
       for (let i = 0; i < this.state.arr.length; i++) {

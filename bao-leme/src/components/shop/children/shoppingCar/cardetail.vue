@@ -19,7 +19,9 @@
             <p>${{price2}}</p>
         </div>
         <div class="car-right" v-if="jiesuan">还差$20起送</div>
-        <div class="car-right2" v-else>去结算</div>
+        <div class="car-right2" v-else>
+            <router-link :to="{name:'jiesuan'}">去结算</router-link>
+        </div>
     </div>
     </div>
 </template>

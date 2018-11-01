@@ -15,6 +15,7 @@ import Forget from '../page/forget/forget'
 import Msite from '../page/msite/Msite'
 import shopsDange from '@/components/shop/children/shopsDange'
 import shopdetail from '@/components/shop/children/shopdetail'
+import Jiesuan from '@/components/shop/children/shoppingCar/jiesuan'
 import Setusername from "../page/profile/children/setusername.vue"
 import Chooseaddress from "../page/confirmOrder/children/chooseAddress.vue"
 import Addaddress from "../page/confirmOrder/children/children/addAddress.vue"
@@ -31,7 +32,12 @@ import Commend from "../page/benefit/children/commend"
 import Download from "../page/download/download"
 import Coupon from "../page/benefit/children/coupon"
 import Service from  "../page/service/service"
+
 import addname from "../page/confirmOrder/children/children/addname"
+
+import Invoice from "../components/shop/children/invoice"
+import Remark from "../components/shop/children/remark"
+
 Vue.use(Router)
 
 export default new Router({
@@ -135,6 +141,10 @@ export default new Router({
       name:"shopdetail",
       component: shopdetail
     },
+    { path: '/shopsLiebiao/jiesuan',
+      name:"jiesuan",
+      component: Jiesuan
+    },
     {
       path:'/benefit',
       component:Benefit
@@ -175,6 +185,19 @@ export default new Router({
     {
       path:"/addname",
       component:addname
-    }
+    },
+    //发票页
+    {
+      path:"/invoice",
+      name:"invoice",
+      component:Invoice
+    },
+    //备注页
+    {
+      path:"/remark",
+      name:"remark",
+      component:Remark
+    },
+
   ]
 })
