@@ -1,6 +1,6 @@
 <template>
   <div class="shops">
-    <keep-alive>
+    <!-- <keep-alive> -->
     <div class="shopsTop">
       <img class="shopTop-img" src="" alt="">
     </div>
@@ -37,7 +37,7 @@
        </router-link>
        </div>
     </div>
-      </keep-alive>
+      <!-- </keep-alive> -->
   </div>
 </template>
 
@@ -64,7 +64,9 @@ export default {
       "&order_by=" +
       this.order_by;
     this.$http.get(api).then(data => {
+      
       this.data = data.data;
+      console.log(this.data)
     });
   },
   watch: {
