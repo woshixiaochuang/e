@@ -16,7 +16,7 @@
         <div class="shopping-car">
         <div class="car-left" @click="handle()">
             <p class="car"><img id="images" :src="imagess" alt=""></p>
-            <p class="size">￥: {{price2}}</p>
+            <p id="size" class="size">￥: <span>{{price2}}</span></p>
         </div>
         <div class="car-right" v-if="jiesuan">还差$20起送</div>
         <div class="car-right2" v-else>
@@ -35,6 +35,15 @@ export default {
             id:"",
             imagess:images
         }
+    },
+    created(){
+       let ss =  this.newshop
+       console.log(ss)
+       if(ss.length != 0){
+           this.$store.commit("qk");
+        // this.show=this.$store.state.show;
+         this.show= false
+       }
     },
     computed:{
         newshop(){

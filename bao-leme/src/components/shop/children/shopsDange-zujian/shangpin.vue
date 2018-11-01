@@ -80,6 +80,7 @@ export default {
       // this.data=data.data.splice(0,7);
       // console.log(data)
     })
+    
   }
 }
 </script>
