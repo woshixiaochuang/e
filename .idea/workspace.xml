@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fb85254-54b6-49fd-9996-05fe30190a54" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bao-leme/src/components/shop/children/invoice.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bao-leme/src/components/shop/children/remark.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bao-leme/src/components/shop/children/shoppingCar/jiesuan.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bao-leme/src/components/shop/children/shoppingCar/cardetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bao-leme/src/components/shop/children/shoppingCar/cardetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bao-leme/src/components/shop/children/shopsLiebiao.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bao-leme/src/components/shop/children/shopsLiebiao.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bao-leme/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/bao-leme/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bao-leme/src/store/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/bao-leme/src/store/mutations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/children/addname.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/children/addname.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,14 +37,14 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="536" />
-          <entry key="Vue.js" value="6393" />
+          <entry key="Vue.js" value="6450" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="536" />
-          <entry key="vue" value="6393" />
+          <entry key="vue" value="6450" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -66,11 +60,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/children/addname.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-528">
-              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+            <state relative-caret-position="24">
+              <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
               <folding>
                 <element signature="e#261#320#0" expanded="true" />
               </folding>
@@ -90,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bao-leme/src/router/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="2064">
+              <caret line="193" column="4" lean-forward="true" selection-start-line="193" selection-start-column="4" selection-end-line="193" selection-end-column="4" />
               <folding>
                 <element signature="e#116#165#0" expanded="true" />
               </folding>
@@ -107,15 +101,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
               <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/chooseAddress.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -175,9 +160,9 @@
         <option value="$PROJECT_DIR$/bao-leme/src/store/mutations.js" />
         <option value="$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/children/children/searchAddress.vue" />
         <option value="$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/children/addAddress.vue" />
-        <option value="$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/children/addname.vue" />
         <option value="$PROJECT_DIR$/bao-leme/src/store/state.js" />
         <option value="$PROJECT_DIR$/bao-leme/src/router/index.js" />
+        <option value="$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/children/addname.vue" />
       </list>
     </option>
   </component>
@@ -344,12 +329,12 @@
       <workItem from="1540859860907" duration="22749000" />
       <workItem from="1540946628211" duration="9306000" />
       <workItem from="1540968305491" duration="9204000" />
-      <workItem from="1541033343134" duration="19818000" />
+      <workItem from="1541033343134" duration="20579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85138000" />
+    <option name="totallyTimeSpent" value="85899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="154" y="19" width="1135" height="689" extended-state="0" />
@@ -568,13 +553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/chooseAddress.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bao-leme/src/store/mutations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -586,23 +564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="58" column="28" lean-forward="true" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bao-leme/src/store/state.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/children/addname.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-528">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding>
-            <element signature="e#261#320#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -618,10 +579,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bao-leme/src/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="2064">
+          <caret line="193" column="4" lean-forward="true" selection-start-line="193" selection-start-column="4" selection-end-line="193" selection-end-column="4" />
           <folding>
             <element signature="e#116#165#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/chooseAddress.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bao-leme/src/store/state.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bao-leme/src/page/confirmOrder/children/children/addname.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+          <folding>
+            <element signature="e#261#320#0" expanded="true" />
           </folding>
         </state>
       </provider>

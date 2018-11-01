@@ -13,7 +13,7 @@
       </div>
       <div class="state">
         <span class="name">联系电话</span>
-        <input type="text" placeholder="你的手机号" v-model="phone">
+        <input @keyup="pp" type="text" placeholder="你的手机号" v-model="phone">
       </div>
       <router-link to="/profile/info/address/add/addDetail">
       <div class="state">
@@ -77,6 +77,7 @@
           this.address = this.$store.state.address;
           this.geohash = this.$store.state.geohash;
           this.name = localStorage.name;
+          this.phone = localStorage.phone_num;
   }
   ,
       methods:{
@@ -111,6 +112,9 @@
             console.log(data.data)
           })
         },
+        pp(){
+            localStorage.setItem("phone_num",this.phone)
+        }
       }
     }
 </script>
@@ -124,7 +128,7 @@
 }
   .state input{
     outline: none;
-    margin-left: .3rem;
+    margin-left: .1rem;
     font-size: .17rem;
   }
   .pitch{
