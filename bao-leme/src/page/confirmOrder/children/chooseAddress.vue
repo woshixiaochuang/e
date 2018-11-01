@@ -11,28 +11,32 @@
         <router-link to="/profile/info/address/add">
         <div class="new"><span>新增地址</span><span class="arrow">></span></div>
         </router-link>
+      <loading v-if="cartoon != 1"></loading>
     </div>
 </template>
 <script>
     import Aheader from "../../../components/header/header.vue";
+    import loading from "../../../components/common/loading"
     export default {
         inject:["reload"],
         name:"chooseAddress",
         components:{
-            Aheader
+            Aheader,loading
         },
         data(){
            return {
                 name:"编辑地址",
                 message:null,
+             cartoon:1
            }
         },
         mounted(a,b,next){
+          this.cartoon -= 1;
             let api = "https://elm.cangdu.org/v1/users/"+localStorage.user_id+"/addresses"+"?t="+ Date.now()
             this.axios.get(api).then(
                 data=>{
-                  console.log(data.data)
                     this.message = data.data;
+                  this.cartoon += 1;
                 }
             )
           // next();

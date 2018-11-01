@@ -68,8 +68,8 @@ import on from "../../../images/pitchon.png";
             },1000)
         }
     }
-</script scoped>
-<style>
+</script>
+<style  scoped>
 .time{
     width: 100%;
     height: 1.5rem;

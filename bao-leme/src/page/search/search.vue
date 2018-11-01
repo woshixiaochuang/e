@@ -8,21 +8,25 @@
          </form>
         </div>
         <foot-guide></foot-guide>
+      <loading v-if="cartoon != 1"></loading>
     </div>
 </template>
 <script>
 import Aheader from "../../components/header/header";
 import footGuide from "../../components/footer/footGuide";
+import loading from "../../components/common/loading"
 export default {
   name: "search",
   components: {
     Aheader,
-    footGuide
+    footGuide,
+    loading
   },
   data(){
     return {
       name:"搜索",
-      food:''
+      food:'',
+      cartoon:1
     }
   },
   computed:{
@@ -32,13 +36,15 @@ export default {
   },
   methods:{
     search(){
+      this.cartoon -=1;
       this.$store.state.geohash = localStorage.latitude +","+localStorage.longitude;
       let geohash = this.$store.state.geohash;
       console.log(geohash)
      let api = "https://elm.cangdu.org/v4/restaurants?geohash="+geohash+"&keyword="+this.food;
      this.axios.get(api).then(
        data=>{
-         alert(data.data.message)
+         this.cartoon +=1;
+         alert(data.data.message);
        }
      )
     }

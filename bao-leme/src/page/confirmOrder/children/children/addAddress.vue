@@ -25,15 +25,17 @@
                   <input @click="add"   class="new" type="submit" value="新增地址">
               </li>    
        </ul>
+      <loading v-if="cartoon != 1 "></loading>
     </div>
 </template>
 
 <script>
-import Aheader from "../../../../components/header/header"
+import Aheader from "../../../../components/header/header";
+import loading from  "../../../../components/common/loading";
 export default {
   name: "forget",
   components:{
-      Aheader
+      Aheader,loading
   },
   data(){
       return{
@@ -50,10 +52,12 @@ export default {
           poi_type:0,
           phone_bk:'',
           tag_type:2,
+        cartoon:1
       }
   },
   //获取用户信息
   created(){
+    this.cartoon -= 1;
       let api = "https://elm.cangdu.org/v1/user";
            this.axios({
                 method: "get",
@@ -64,6 +68,7 @@ export default {
                    let arg = data.data;
                    console.log(arg);
                    this.user_id = arg.user_id;
+                 this.cartoon += 1;
                }
            );
            this.address = this.$store.state.address;
@@ -72,6 +77,7 @@ export default {
   },
   methods:{
       add(){
+        this.cartoon -=1;
           let api = "https://elm.cangdu.org/v1/users/"+this.user_id+"/addresses";
           this.axios({
               url:api,
@@ -89,6 +95,7 @@ export default {
                   tag_type:this.tag_type
               }
           }).then(()=>{
+            this.cartoon +=1;
             this.$router.push({
               path:"/profile/info/address",
               query:{
@@ -99,8 +106,7 @@ export default {
           })
       },
     save(){
-        localStorage.setItem("name",this.name)
-        console.log(localStorage.name)
+        localStorage.setItem("name",this.name);
     }
   }
 };
