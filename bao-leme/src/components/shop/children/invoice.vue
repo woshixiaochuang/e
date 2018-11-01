@@ -33,7 +33,7 @@ export default {
             this.dot =! this.dot
         },
         btn(){
-            this.$router.push({name:`foot`})
+            this.$router.push({name:`jiesuan`})
         }
     }
 }

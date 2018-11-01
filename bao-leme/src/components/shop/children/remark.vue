@@ -80,7 +80,7 @@ export default {
       this.judge =! this.judge
     },
     btn(){
-         this.$router.push({name:`foot`})
+         this.$router.push({name:`jiesuan`})
     }
   }
 };
