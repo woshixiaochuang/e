@@ -43,5 +43,11 @@ jiesuan(state){
   }else{
     this.state.show = false;
   }
-}
+},
+  changeaddress(state,value){
+      state.address = value;
+  },
+  changegeohash(state,value){
+      state.geohash =  value;
+  }
 }

@@ -2,10 +2,8 @@
     <div class="gray">
         <Aheader :inputName="name"></Aheader>
         <div class="all">
-         <form action="" method="get">
            <input v-model="address" class="search" type="text" placeholder="请输入小区/写字楼/学校">
            <input @click="search" class="button" type="submit" value="提交">
-         </form>
         </div>
         <ul>
             <div  v-for="(item,index) in site" :key='index' @click="writein(index)">
@@ -28,7 +26,7 @@ export default {
     return {
       name:"搜索地址",
       address:'',
-      site:''
+      site:[]
     }
   },
   methods:{
@@ -46,13 +44,9 @@ export default {
           )
       },
       writein(n){
-          this.$router.push({
-              path:'/profile/info/address/add',
-              query:{
-                  address:this.site[n].name,
-                  geohash:this.site[n].geohash
-              }
-          })
+        this.$store.commit("changeaddress",this.site[n].name)
+        this.$store.commit("changegeohash",this.site[n].geohash)
+        this.$router.go(-1);
       }
   }
   }

@@ -66,9 +66,8 @@ export default {
                    this.user_id = arg.user_id;
                }
            );
-           this.address = this.$route.query.address;
-           this.geohash = this.$route.query.geohash;
-           this.$store.state.geohash = this.geohash;
+           this.address = this.$store.state.address;
+           this.geohash = this.$store.state.geohash;
            this.name = localStorage.name;
   },
   methods:{
@@ -101,7 +100,7 @@ export default {
       },
     save(){
         localStorage.setItem("name",this.name)
-      console.log(localStorage.name)
+        console.log(localStorage.name)
     }
   }
 };
