@@ -13,7 +13,6 @@ import home from '../page/home/Home-app'
 import City from '../page/city/city'
 import Forget from '../page/forget/forget'
 import Msite from '../page/msite/Msite'
-import shopsLiebiao from '@/components/shop/children/shopsLiebiao'
 import shopsDange from '@/components/shop/children/shopsDange'
 import shopdetail from '@/components/shop/children/shopdetail'
 import Jiesuan from '@/components/shop/children/shoppingCar/jiesuan'
@@ -33,6 +32,8 @@ import Commend from "../page/benefit/children/commend"
 import Download from "../page/download/download"
 import Coupon from "../page/benefit/children/coupon"
 import Service from  "../page/service/service"
+import Invoice from "../components/shop/children/invoice"
+import Remark from "../components/shop/children/remark"
 Vue.use(Router)
 
 export default new Router({
@@ -102,11 +103,6 @@ export default new Router({
     {
       path:"/profile/info",
       component:Info
-    },
-    {
-      path: '/shopsLiebiao',
-      name: 'shopsLiebiao',
-      component: shopsLiebiao
     },
     {
       path: '/shopsLiebiao/:id?',
@@ -181,6 +177,18 @@ export default new Router({
     {
       path:"/service",
       component:Service
-    }
+    },
+    //发票页
+    {
+      path:"/invoice",
+      name:"invoice",
+      component:Invoice
+    },
+    //备注页
+    {
+      path:"/remark",
+      name:"remark",
+      component:Remark
+    },
   ]
 })
