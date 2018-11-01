@@ -1,9 +1,6 @@
 <template>
   <div class="shops">
-<<<<<<< HEAD
-=======
     <!-- <keep-alive> -->
->>>>>>> 4acc9e2934dffec12ab7f1a82363c51efced45af
     <div class="shopsTop">
       <img class="shopTop-img" src="" alt="">
     </div>
@@ -40,10 +37,7 @@
        </router-link>
        </div>
     </div>
-<<<<<<< HEAD
-=======
       <!-- </keep-alive> -->
->>>>>>> 4acc9e2934dffec12ab7f1a82363c51efced45af
   </div>
 </template>
 

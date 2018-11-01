@@ -4,10 +4,12 @@
             <span class="el-icon-arrow-left" @click="handle()"></span>
             <span>确认订单</span>
         </div>
-        <div class="js-address">
+        <router-link to="/addname">
+            <div class="js-address">
             <p class="user-information">233 先生 1223434423</p>
             <p class="el-icon-arrow-right add-address"></p>
         </div>
+        </router-link>
         <div class="color-gray"></div>
         <div class="song-time">
             <div class="time-left">送达时间</div>
