@@ -3,12 +3,14 @@ import Vue from "vue"
 import Vuex from 'vuex';
 //导入状态
 //state
-import state from './state'
+import state from './state';
+import mutations from './mutations';
 Vue.use(Vuex)
 //配置vuex
 const store = new Vuex.Store({
     //共享状态:类似data
     state,
+    mutations
 //     //类似组建中的computed,依赖state
 //     getters,
 //     //修改状态的方法:类似组件methods

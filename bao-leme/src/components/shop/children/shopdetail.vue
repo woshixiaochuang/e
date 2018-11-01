@@ -72,8 +72,11 @@ export default {
 </script>
 
 <style>
+.shopdetail{
+  background-color: white;
+}
 .shopdetail-top{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color:#409EFF;

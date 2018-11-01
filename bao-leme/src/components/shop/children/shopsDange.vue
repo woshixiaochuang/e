@@ -1,7 +1,7 @@
 <template>
 <div class="detailed-information">
     <div class="shopsDetailed-top">
-        <a class="el-icon-arrow-left" id="fanhui" href="http://localhost:8080/#/"></a>
+        <a class="el-icon-arrow-left" id="fanhui" href="http://localhost:8080/#/msite"></a>
         <router-link class="el-icon-arrow-right" id="jiantouOne" :to="{name:'shopdetail',params:{id:$route.params.id}}"></router-link>
         <div class="topImages-mohu">
             <img :src="'https://elm.cangdu.org/img/'+data.image_path" alt="">
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { Loading } from "element-ui";
 import shangpin from './shopsDange-zujian/shangpin';
 import pingjia from './shopsDange-zujian/pingjia';
 export default {
@@ -41,7 +42,8 @@ export default {
       shangpin:"shangpin",
       pingjia:"pingjia",
       cc:"shangpin",
-      changeRed:true
+      changeRed:true,
+      loading:true
     };
   },
   components:{
@@ -55,13 +57,15 @@ export default {
       }
   },
   created(){
+    let loadingInstance1 = Loading.service({ fullscreen: true });
     var id = this.$route.params.id;
     let api = "https://elm.cangdu.org/shopping/restaurant/"+id;
     this.$http.get(api).then((data)=>{
           this.data = data.data;
         //   console.log(this.data)
         });
-    
+        loadingInstance1.close();
+        this.loading = false;
       }
 }
 </script>

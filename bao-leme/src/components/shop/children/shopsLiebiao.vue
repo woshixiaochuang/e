@@ -1,9 +1,6 @@
 <template>
   <div class="shops">
-    <div class="shopsTop">
-      <img class="shopTop-img" src="../../../../static/imgs/download.jpg" alt="">
-      <span class="nearbyShops">附近商家</span>
-    </div>
+    <keep-alive>
     <div class="shopListings">
        <div class="shop-content" v-for="(item,index) in data" :key="index">
           <router-link :to="{name:'shopsDange',params:{id:item.id}}">
@@ -37,6 +34,7 @@
        </router-link>
        </div>
     </div>
+      </keep-alive>
   </div>
 </template>
 
@@ -64,16 +62,11 @@ export default {
   margin: 0;
   padding: 0;
 }
+.shops{
+  background-color: white;
+}
 span{
   margin-left: 0.1rem;
-}
-.shopTop-img {
-  width: 5%;
-  margin-left: 0.1rem;
-}
-.nearbyShops {
-  color: gray;
-  font-size: 0.1rem;
 }
 .shop-Images {
   width: 100%;
