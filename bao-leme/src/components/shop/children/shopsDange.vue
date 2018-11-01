@@ -1,7 +1,7 @@
 <template>
 <div class="detailed-information">
     <div class="shopsDetailed-top">
-        <a class="el-icon-arrow-left" id="fanhui" href="http://localhost:8080/#/msite"></a>
+        <i class="el-icon-arrow-left" id="fanhui" @click="url()"></i>
         <router-link class="el-icon-arrow-right" id="jiantouOne" :to="{name:'shopdetail',params:{id:$route.params.id}}"></router-link>
         <div class="topImages-mohu">
             <img :src="'https://elm.cangdu.org/img/'+data.image_path" alt="">
@@ -54,6 +54,9 @@ export default {
       handle(value,value2){
           this.cc = value;
           this.changeRed=value2;
+      },
+      url(){
+          this.$router.go(-1)
       }
   },
   created(){

@@ -18,7 +18,7 @@
     <input type="button" value="登录" style="line-height:.01rem;background:#00FA9A;width:90%;height:.4rem;font-size:.18rem;color:white;font-weight: bolder;border-radius: .05rem;"  @click.prevent="login">
     </li>
      <li style="text-align:right;padding-top:.4rem;margin-right:.4rem;">
-      <router-link style="margin:.5rem,.2rem;font-size:.16rem;color:#0474f5f1" :to="{name:'forget'}">重置密码? &emsp;</router-link></li>
+      <router-link style="margin:.5rem .2rem;font-size:.16rem;color:#0474f5f1" :to="{name:'forget'}">重置密码? &emsp;</router-link></li>
     </div>
     </div> 
 </template>

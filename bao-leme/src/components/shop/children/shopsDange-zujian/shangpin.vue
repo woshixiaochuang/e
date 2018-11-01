@@ -142,6 +142,7 @@ export default {
   border-bottom: 0.01rem solid gainsboro;
   overflow: hidden;
   padding: 0.1rem;
+  position: relative;
 }
 .hotscore-information{
   float: left;

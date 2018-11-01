@@ -30,8 +30,6 @@ import hbHistory from "../page/benefit/children/hbHistory"
 import Exchange from "../page/benefit/children/exchange"
 import Commend from "../page/benefit/children/commend"
 import Download from "../page/download/download"
-import Coupon from "../page/benefit/children/coupon"
-import Service from  "../page/service/service"
 Vue.use(Router)
 
 export default new Router({
@@ -148,8 +146,11 @@ export default new Router({
     {
       path:'/foot',
       name:"foot",
-      component:Foot
-    },  
+      component:Foot},
+
+
+
+      
     {
       path:'/benefit/hbDescription',
       component:hbDescription
@@ -168,14 +169,6 @@ export default new Router({
     {
       path:"/download",
       component:Download
-    },
-    {
-      path:"/benefit/coupon",
-      component:Coupon
-    },
-    {
-      path:"/service",
-      component:Service
     }
   ]
 })

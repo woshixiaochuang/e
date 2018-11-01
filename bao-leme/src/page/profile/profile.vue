@@ -34,11 +34,13 @@
                </router-link>
             </el-col> 
            <el-col :span='8'>
+             <router-link to="benefit">
                <div>
-               <p class="balance red">0个</p>
+               <p class="balance red">3个</p>
                <br>
                <p>我的优惠</p>
                </div>
+             </router-link>
            </el-col>
            <el-col :span='8'>
                <router-link to="/points">
@@ -61,15 +63,19 @@
              </div>
          </div>
          <div  class="subtitle second" >
+           <router-link to="/service">
               <div>
                 <img src="../../images/service.png"> 
                 <span>服务中心</span>
                  <i class="el-icon-arrow-right"></i>
              </div>
+           </router-link>
              <div>
+               <router-link to="/download">
                 <img src="../../images/app.png"> 
                 <span>下载饿了么</span>
                  <i class="el-icon-arrow-right"></i>
+               </router-link>
              </div>
          </div>
     </div>
@@ -101,7 +107,6 @@ export default {
   },
   created() {
       let n = localStorage.username;
-
     if (n) {
       this.username = n;
       this.link = "/profile/info"

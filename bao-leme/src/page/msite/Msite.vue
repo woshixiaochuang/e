@@ -2,24 +2,28 @@
     <div>
         <div id="box">
       <router-link id="ele"  :to="{name:'search'}"><i class="el-icon-search" style="position:absolute;left:.1rem;font-size:.2rem;font-weight: bolder;color:white"></i></router-link>
-      <div style=" text-align:center;"><span style="font-size:.2rem; font-weight: bolder;color:white">{{name}}</span></div>
+      <div style=" text-align:center;"><span @click="city()" style="font-size:.2rem; font-weight: bolder;color:white">{{name}}</span></div>
       <img :src="img" @click="change()" style="width:.31rem;position:absolute;right:.1rem;">
         </div>
-        <div class="top" style="height:2.1rem;width:100%;background:white;position: relative;overflow: hidden;">
-            <div class="top_center" style="width:200%;height:100%;position: absolute;">
+         <div class="top" style="height:2.1rem;width:100%;background:white;position: relative;overflow: hidden;"><!--overflow: hidden; -->
+            <v-touch v-on:swipeleft="swiperleft()" v-on:swiperight="swiperight()">
+            <div id="lb" class="top_center" style="width:200%;height:100%;position: absolute;left:0">
                 <ul class="center" style="width:100%;height:1.9rem;overflow: hidden;">
-                    <li @click="changeshopping()" class="center_l" v-for="(item,index) in title" :key="index">
+                    <li @click="changeshopping(item.title)" class="center_l" v-for="(item,index) in title" :key="index">
                       <img class="title_img" :src="'https://fuss10.elemecdn.com'+item.image_url" alt="">
                       {{item.title}}
                       </li>  
                 </ul>
             </div>
+            </v-touch>
              <div class="dot">
-                      <div></div>
-                      <div></div>
+                      <div id="dot_l" style="background:#0474f5f1"></div>
+                      <div id="dot_r"></div>
                   </div>
+            
         </div>
-      <div>
+      <div style="margin-top:.2rem;background:white;position:relative">
+        <p><img style="width:.2rem;position:absolute;top:.05rem;left:.1rem" :src="msg" alt=""><span style="font-size:.14rem;position:absolute;top:.1rem;left:.25rem">附件商家</span></p>
        <shoppingLie></shoppingLie>
       </div>
         <footers></footers>
@@ -28,9 +32,11 @@
 
 <script>
 //elm.cangdu.org/img/164ad0b6a3917599.jpg
+   const Lb = document.getElementById("lb");
 import imgs from "../../images/default.png";
 import footers from "../../components/footer/footGuide.vue";
-import shoppingLie from "../../components/shop/children/shopsLiebiao"
+import shoppingLie from "../../components/shop/children/shopsLiebiao";
+import Shoppingimgs from "../../images/Msiteshopping.png"
 export default {
   name: "msite",
   components: {
@@ -45,7 +51,10 @@ export default {
       geohash: "",
       img: imgs,
       title:"",
-      shopping:""
+      shopping:"",
+      leftchange:"",
+      leftd:"",
+      msg:Shoppingimgs
     };
   },
   created() {
@@ -57,7 +66,6 @@ export default {
       "&order_by=5";
       this.axios.get(api).then(data => {
       this.shopping=data.data;
-      console.log(this.shopping)
     });
     let api1 = "/api/v2/index_entry";
     this.axios.get(api1).then(data =>{
@@ -66,7 +74,7 @@ export default {
   },
   methods: {
     change() {
-      this.$router.push({ name: "profile" });
+      this.$router.push({name:"profile"});
     },
     shoppingTitle(obj){
         let x = obj[8];let z = obj[9];let d = obj[10];let t = obj[11];
@@ -74,11 +82,31 @@ export default {
         obj[4]=x;obj[5]=z;obj[6]=d;obj[7]=t;
         return obj
     },
-    dot(){
-    console.log(this)
+    changeshopping(title){
+      this.$router.push({name:"foot",
+      params:{
+        title:title
+      }
+      })
     },
-    changeshopping(){
-      this.$router.push({name:"shopsLiebiao"})
+    swiperleft(){
+      let dw = (lb.offsetWidth)/2;
+      setTimeout(function(){
+        lb.style.left = -dw + "px";
+        dot_l.style.background = "#eaf0f0f1";
+        dot_r.style.background = "#0474f5f1"
+      },20)
+    },
+    swiperight(){
+      setTimeout(function(){
+      lb.style.left = 0 + "px";
+      dot_l.style.background = "#0474f5f1";
+      dot_r.style.background = "#eaf0f0f1"
+      },20)
+    },
+    city(){
+      this.$router.push({path:"/city/"+localStorage.city_id})
+      
     }
   },
   
@@ -93,6 +121,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  
 }
 .center{
     display: flex;
@@ -138,5 +167,8 @@ padding: .15rem;
 }
 .shopping_img{
   width: .7rem;
+}
+#lb{
+  transition: all 2s;
 }
 </style>

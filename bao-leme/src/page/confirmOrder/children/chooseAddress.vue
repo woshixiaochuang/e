@@ -27,20 +27,22 @@
                 message:null,
            }
         },
-        mounted(){
-            let api = "https://elm.cangdu.org/v1/users/"+localStorage.user_id+"/addresses"
+        mounted(a,b,next){
+            let api = "https://elm.cangdu.org/v1/users/"+localStorage.user_id+"/addresses"+"?t="+ Date.now()
             this.axios.get(api).then(
                 data=>{
+                  console.log(data.data)
                     this.message = data.data;
                 }
             )
+          // next();
         },
         methods:{
             dele(n){
                 let api = "https://elm.cangdu.org/v1/users/"+this.message[n].user_id+"/addresses/"+this.message[n].id;
-                this.axios.delete(api).then(
-                    this.reload()
-                )
+                this.axios.delete(api).then(()=>{
+                  this.reload()
+                })
             }
         }
     }
