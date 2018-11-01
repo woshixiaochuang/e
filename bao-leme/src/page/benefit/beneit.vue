@@ -3,8 +3,8 @@
       <Aheader :input-name="message"></Aheader>
 
       <div class="titles">
-       <span class="title" @click="show=true">红包</span>
-        <span class="title" @click="show=false">商家代金券</span>
+       <span class="title" @click="showss($event);show = true">红包</span>
+        <span id="sp1" class="title" @click="showss($event);show = false">商家代金券</span>
       </div>
       <div v-if="show">
         <div style="width: 100%;overflow: hidden;">
@@ -70,9 +70,6 @@
             cartoon:1,
           }
       },
-      // beforeCreate(){
-      //
-      // },
       created(){
         this.cartoon = this.cartoon-1
           let api = "https://elm.cangdu.org/promotion/v2/users/"+localStorage.user_id+"/hongbaos?limit=20&offset=0"
@@ -87,6 +84,16 @@
            this.cartoon = this.cartoon+1;
           }
         )
+      },
+      methods:{
+        showss(ev){
+          let tt = document.getElementsByClassName("title")[0];
+          let tt1 = document.getElementsByClassName("title")[1];
+          tt.style.color = "black";
+          tt1.style.color = "black";
+          ev.target.style.color = "blue";
+
+          }
       }
     }
 </script>
