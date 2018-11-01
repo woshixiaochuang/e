@@ -65,11 +65,11 @@
             <ul>
                 <li>
                     <span>订单备注</span>
-                    <span class="bt-right">口味、偏好等></span>
+                    <span @click="remark()"  class="bt-right">口味、偏好等></span>
                 </li>
                 <li>
                     <span>发票抬头</span>
-                    <span class="bt-right">不需要开发票></span>
+                    <span @click="invoice()" class="bt-right">不需要开发票></span>
                 </li>
             </ul>
         </div>
@@ -97,7 +97,14 @@ export default {
     methods:{
         handle(){
             this.$router.go(-1);
+        },
+        remark(){
+            this.$router.push({name:`remark`})
+        },
+        invoice(){
+            this.$router.push({name:`invoice`})
         }
+        
     }
 }
 </script>

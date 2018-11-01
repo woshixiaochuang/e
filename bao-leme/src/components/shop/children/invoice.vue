@@ -1,6 +1,9 @@
 <template>
     <div id="invoice">
-        <Head :inputName="name"></Head>
+         <div id="box">
+      <router-link id="ele"  :to="{name:'jiesuan'}"><i class="el-icon-arrow-left" style="position:absolute;left:.1rem;font-size:.2rem;font-weight: bolder;color:white"></i></router-link>
+      <div style=" text-align:center;"><span style="font-size:.2rem; font-weight: bolder;color:white">{{name}}</span></div>
+        </div>
         <div class="center" @click="dotdown()">
             <div id="center_r">
             <span>不需要开发票</span>
@@ -33,13 +36,21 @@ export default {
             this.dot =! this.dot
         },
         btn(){
-            this.$router.push({name:`foot`})
+            this.$router.push({name:`jiesuan`})
         }
     }
 }
 </script>
 
 <style scoped>
+#box {
+  background-color: #0474f5f1;
+  height: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
 .center{
 margin-top: .117rem;
 border: .01rem solid white;
