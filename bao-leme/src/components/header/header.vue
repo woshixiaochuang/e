@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <i @click="back" class="el-icon-arrow-left" style="position:absolute;top:.14rem;left:.1rem;font-size:.2rem;font-weight: bolder;color:white"></i>
+        <i @click="back()" class="el-icon-arrow-left" style="position:absolute;top:.14rem;left:.1rem;font-size:.2rem;font-weight: bolder;color:white"></i>
         <span class="my">{{inputName}}</span>
     </div>
 </template>

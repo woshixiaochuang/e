@@ -1,6 +1,9 @@
 <template>
     <div id="remark">
-        <Head :inputName="name"></Head>
+         <div id="box">
+      <router-link id="ele"  :to="{name:'jiesuan'}"><i class="el-icon-arrow-left" style="position:absolute;left:.1rem;font-size:.2rem;font-weight: bolder;color:white"></i></router-link>
+      <div style=" text-align:center;"><span style="font-size:.2rem; font-weight: bolder;color:white">{{name}}</span></div>
+        </div>
         <section id="center_top">
             <header>快速备注</header>
             <ul id="specific_l" style="height:1.35rem;">
@@ -87,6 +90,14 @@ export default {
 </script>
 
 <style>
+#box {
+  background-color: #0474f5f1;
+  height: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
 #center_top {
   margin-top: 0.09375rem;
   width: 100%;
