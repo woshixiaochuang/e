@@ -1,6 +1,5 @@
 <template>
   <div class="shops">
-    <keep-alive>
     <div class="shopsTop">
       <img class="shopTop-img" src="" alt="">
     </div>
@@ -37,7 +36,6 @@
        </router-link>
        </div>
     </div>
-      </keep-alive>
   </div>
 </template>
 

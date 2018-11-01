@@ -16,6 +16,7 @@ import Msite from '../page/msite/Msite'
 import shopsLiebiao from '@/components/shop/children/shopsLiebiao'
 import shopsDange from '@/components/shop/children/shopsDange'
 import shopdetail from '@/components/shop/children/shopdetail'
+import Jiesuan from '@/components/shop/children/shoppingCar/jiesuan'
 import Setusername from "../page/profile/children/setusername.vue"
 import Chooseaddress from "../page/confirmOrder/children/chooseAddress.vue"
 import Addaddress from "../page/confirmOrder/children/children/addAddress.vue"
@@ -139,6 +140,10 @@ export default new Router({
      { path: '/shopsLiebiao/shopdetail',
       name:"shopdetail",
       component: shopdetail
+    },
+    { path: '/shopsLiebiao/jiesuan',
+      name:"jiesuan",
+      component: Jiesuan
     },
     {
       path:'/benefit',
