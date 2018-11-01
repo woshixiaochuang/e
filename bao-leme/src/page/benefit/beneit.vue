@@ -118,6 +118,7 @@
     height:.7rem;
     overflow: hidden;
     margin-bottom: .2rem;
+    border-top: .05rem dotted red;
   }
   .dibu{
     position: absolute;

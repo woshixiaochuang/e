@@ -8,29 +8,34 @@
   <span style="display: inline-block;width: 15%;background-color: #fff;" @click="change">看不清换一张</span>
 </div>
   <button @click="sub" class="con">兑换</button>
+  <loading v-if="cartoon != 1"></loading>
 </div>
 </template>
 
 <script>
   import Aheader from "../../../components/header/header";
+  import loading from "../../../components/common/loading"
     export default {
         name: "exchange",
       components:{
-        Aheader
+        Aheader,loading
       },
       data(){
         return{
           message:"兑换红包",
           img:"",
           num:'',
-          numm:''
+          numm:'',
+          cartoon:1
         }
       },
       created(){
+          this.cartoon -=1;
           let api = "https://elm.cangdu.org/v1/captchas"
           this.axios.post(api).then(
             data=>{
-              this.img = data.data.code
+              this.img = data.data.code;
+              this.cartoon +=1;
             }
           )
       },

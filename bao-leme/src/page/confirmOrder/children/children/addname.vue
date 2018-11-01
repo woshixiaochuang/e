@@ -3,7 +3,7 @@
       <Aheader :input-name="message"></Aheader>
       <div class="state">
         <span class="name">联系人</span>
-        <input type="text" placeholder="你的名字" v-model="name">
+        <input @keyup="nn" type="text" placeholder="你的名字" v-model="name">
       </div>
       <div class="state">
         <img @click="pitch" class="pitch" :src="imgm">
@@ -30,17 +30,19 @@
         <input type="text" placeholder="无/家/学校/公司">
       </div>
       <button class="con" @click="add">确定</button>
+      <loading v-if="cartoon != 1"></loading>
     </div>
 </template>
 
 <script>
   import Aheader from "../../../../components/header/header";
   import imgon from  "../../../../images/pitchon.png";
-  import imgdown from "../../../../images/pitchdown.png"
+  import imgdown from "../../../../images/pitchdown.png";
+  import loading from "../../../../components/common/loading"
     export default {
         name: "addname",
       components:{
-          Aheader
+          Aheader,loading
       },
       data(){
           return {
@@ -60,9 +62,11 @@
             poi_type:0,
             phone_bk:'',
             tag_type:2,
+            cartoon:1
           }
       },
   created(){
+          this.cartoon -=1;
     let api = "https://elm.cangdu.org/v1/user";
     this.axios({
       method: "get",
@@ -72,6 +76,7 @@
       data=>{
         let arg = data.data;
         this.user_id = arg.user_id;
+        this.cartoon +=1;
       }
     );
           this.address = this.$store.state.address;
@@ -114,7 +119,10 @@
         },
         pp(){
             localStorage.setItem("phone_num",this.phone)
-        }
+        },
+        nn(){
+          localStorage.setItem("name",this.name)
+        },
       }
     }
 </script>

@@ -13,24 +13,28 @@
             </div>
             </div>
         </ul>
+      <loading v-if="cartoon != 1"></loading>
     </div>
 </template>
 <script>
 import Aheader from "../../../../../components/header/header";
+import loading from "../../../../../components/common/loading"
 export default {
   name: "searchAddress",
   components: {
-    Aheader
+    Aheader,loading
   },
   data(){
     return {
       name:"搜索地址",
       address:'',
-      site:[]
+      site:[],
+      cartoon:1
     }
   },
   methods:{
       search(){
+        this.cartoon -= 1;
           let api = "https://elm.cangdu.org/v1/pois?city_id="+localStorage.city_id+"&keyword="+this.address;
           this.axios({
                method: "get",
@@ -39,7 +43,7 @@ export default {
         }).then(
               data=>{
                   this.site = data.data;
-                  console.log(this.site)
+                this.cartoon += 1;
                   }
           )
       },

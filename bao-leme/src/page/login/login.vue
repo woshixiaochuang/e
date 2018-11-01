@@ -25,10 +25,11 @@
 
 <script>
 import Aheader from "../../components/header/header";
+import loading from "../../components/common/loading"
 export default {
   name: "login",
   components: {
-    Aheader
+    Aheader,loading
   },
   data() {
     return {
@@ -39,7 +40,8 @@ export default {
       username: "",
       password: "",
       verifynum: "",
-      address: "###"
+      address: "###",
+      cartoon:1,
     };
   },
   methods: {
@@ -67,6 +69,7 @@ export default {
     },
     login() {
       //提交数据给后台
+      this.cartoon -= 1;
       let api = "https://elm.cangdu.org/v2/login";
       this.axios({
         method: "post",
@@ -80,6 +83,7 @@ export default {
       }).then(data => {
         if (data.data.message) {
           alert(data.data.message);
+          this.cartoon += 1;
         } else {
           console.log(data.data);
           this.$router.push({
@@ -88,7 +92,8 @@ export default {
               user: data.data
             }
           });
-          localStorage.setItem("user_id",data.data.id)
+          localStorage.setItem("user_id",data.data.id);
+          this.cartoon += 1;
         }
       });
       //存储用户名和密码
