@@ -13,7 +13,6 @@ import home from '../page/home/Home-app'
 import City from '../page/city/city'
 import Forget from '../page/forget/forget'
 import Msite from '../page/msite/Msite'
-import shopsLiebiao from '@/components/shop/children/shopsLiebiao'
 import shopsDange from '@/components/shop/children/shopsDange'
 import shopdetail from '@/components/shop/children/shopdetail'
 import Setusername from "../page/profile/children/setusername.vue"
@@ -101,11 +100,6 @@ export default new Router({
     {
       path:"/profile/info",
       component:Info
-    },
-    {
-      path: '/shopsLiebiao',
-      name: 'shopsLiebiao',
-      component: shopsLiebiao
     },
     {
       path: '/shopsLiebiao/:id?',
