@@ -27,6 +27,7 @@
         </div>
         <component :is="cc"></component>
     </div>
+    <loading v-if="num != 1"></loading>
 </div>
 </template>
 
@@ -34,6 +35,7 @@
 import { Loading } from "element-ui";
 import shangpin from './shopsDange-zujian/shangpin';
 import pingjia from './shopsDange-zujian/pingjia';
+import loading from "../../common/loading";
 export default {
   name: 'shopsDange',
   data() {
@@ -43,12 +45,14 @@ export default {
       pingjia:"pingjia",
       cc:"shangpin",
       changeRed:true,
-      loading:true
+      loading:true,
+      num:1
     };
   },
   components:{
       shangpin,
-      pingjia
+      pingjia,
+      loading
   },
   methods:{
       handle(value,value2){
@@ -56,15 +60,21 @@ export default {
           this.changeRed=value2;
       },
       url(){
-          this.$router.go(-1)
+          if(this.$route.params.id == null){
+               this.$router.go(-1)
+          }else{
+              this.$router.push({name:"foot"})
+          }
       }
   },
   created(){
+      this.num -= 1;
     let loadingInstance1 = Loading.service({ fullscreen: true });
     var id = this.$route.params.id;
     let api = "https://elm.cangdu.org/shopping/restaurant/"+id;
     this.$http.get(api).then((data)=>{
           this.data = data.data;
+          this.num += 1
         //   console.log(this.data)
         });
         loadingInstance1.close();

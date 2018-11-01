@@ -141,7 +141,7 @@ export default new Router({
       name:"shopdetail",
       component: shopdetail
     },
-    { path: '/shopsLiebiao/jiesuan',
+    { path: '/shopsLiebiao/jiesuan/?id',
       name:"jiesuan",
       component: Jiesuan
     },

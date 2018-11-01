@@ -35,11 +35,13 @@
             </li>
           </ul>
         </div>
+        <loading v-if="num != 1"></loading>
       </div>
 </template>
 
 <script>
 let searches = localStorage.searches ? JSON.parse(localStorage.searches) : [];
+import loading from "../../components/common/loading";
 export default {
   name: "city",
   data() {
@@ -51,15 +53,21 @@ export default {
       ls: true,
       i: 0,
       LsCentern: "",
+      num:1
     };
   },
+  components:{
+    loading
+  },
   created() {
+    this.num -= 1;
     var newsearches = this.dedup(searches);
     this.LsCentern = newsearches;
     this.id = this.$route.params.id;
     let api = "/api/v1/cities/" + this.id;
     this.axios.get(api).then(data => {
       this.city = data.data.name;
+      this.num += 1
     });
     
   },

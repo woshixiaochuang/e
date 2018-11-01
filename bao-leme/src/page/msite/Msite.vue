@@ -27,6 +27,7 @@
        <shoppingLie></shoppingLie>
       </div>
         <footers></footers>
+        <loading v-if="num != 1"></loading>
     </div>
 </template>
 
@@ -36,12 +37,14 @@
 import imgs from "../../images/default.png";
 import footers from "../../components/footer/footGuide.vue";
 import shoppingLie from "../../components/shop/children/shopsLiebiao";
-import Shoppingimgs from "../../images/Msiteshopping.png"
+import Shoppingimgs from "../../images/Msiteshopping.png";
+import loading from "../../components/common/loading";
 export default {
   name: "msite",
   components: {
     footers,
-    shoppingLie
+    shoppingLie,
+    loading
   },
   data() {
     return {
@@ -54,10 +57,12 @@ export default {
       shopping:"",
       leftchange:"",
       leftd:"",
-      msg:Shoppingimgs
+      msg:Shoppingimgs,
+      num:1
     };
   },
   created() {
+    this.num -= 2
     this.geohash = this.$route.params.geohash;
     let api ="/api/shopping/restaurants?latitude=" +
       this.latitude +
@@ -66,10 +71,12 @@ export default {
       "&order_by=5";
       this.axios.get(api).then(data => {
       this.shopping=data.data;
+      this.num += 1;
     });
     let api1 = "/api/v2/index_entry";
     this.axios.get(api1).then(data =>{
         this.title = this.shoppingTitle(data.data); 
+        this.num += 1;
     })
   },
   methods: {

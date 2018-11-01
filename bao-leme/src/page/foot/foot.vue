@@ -62,6 +62,7 @@
     <div style="background:white">
     <shoppingLie :id="id" :obj ="obj" :order="order_by" :psid="psid"></shoppingLie>
     </div>
+    <loading v-if="num != 1"></loading>
 </div> 
 </template>
 <script>
@@ -72,10 +73,12 @@ import manyss from "../../images/many.png";
 import times from "../../images/time.png";
 import hots from "../../images/hot.png";
 import ber from "../../images/ber.png";
+import loading from "../../components/common/loading";
 export default {
   name: "foot",
   data() {
     return {
+      num:1,
       name: this.$route.params.title,
       classfoot: false,
       sort: false,
@@ -113,9 +116,11 @@ export default {
   },
   components: {
     Aheaders,
-    shoppingLie
+    shoppingLie,
+    loading
   },
   created() {
+    this.num -= 3
     //https://fuss10.elemecdn.com/b/ff/533cf9617bd57fe1dfb05603bebcfpng.png
     this.name = this.$route.params.title;
     let api =
@@ -125,6 +130,7 @@ export default {
       this.longitude;
     this.axios.get(api).then(data => {
       this.shoppingclass = data.data;
+      this.num += 1
     });
     let api1 =
       "/api/shopping/v1/restaurants/activity_attributes?latitude=" +
@@ -133,6 +139,7 @@ export default {
       this.longitude;
     this.axios.get(api1).then(data => {
       this.activity = data.data;
+      this.num += 1
     });
     let api2 =
       "/api/shopping/v1/restaurants/delivery_modes?latitude=" +
@@ -142,6 +149,7 @@ export default {
     this.axios.get(api2).then(data => {
       this.feng = data.data[0].text;
       this.psid = data.data[0].id;
+      this.num += 1
     });
   },
   methods: {

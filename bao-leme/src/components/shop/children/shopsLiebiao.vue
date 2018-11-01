@@ -38,24 +38,31 @@
        </div>
     </div>
       <!-- </keep-alive> -->
+      <loading v-if="num != 1"></loading>
   </div>
 </template>
 
 <script>
 import { score } from "element-ui";
+import loading from "../../common/loading";
 export default {
   props: ["id", "obj", "order", "psid"],
   name: "shops",
+  components:{
+    loading
+  },
   data() {
     return {
       data: [],
       latitude: localStorage.latitude,
       longitude: localStorage.longitude,
       order_by: 5,
-      psids: ""
+      psids: "",
+      num:1
     };
   },
   created() {
+    this.num -= 1
     let api =
       "/api/shopping/restaurants?latitude=" +
       this.latitude +
@@ -65,6 +72,7 @@ export default {
       this.order_by;
     this.$http.get(api).then(data => {
       this.data = data.data;
+      this.num += 1
     });
   },
   watch: {

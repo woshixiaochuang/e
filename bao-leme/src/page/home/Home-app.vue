@@ -31,29 +31,34 @@
           </li>
       </ul>
     </div>
+    <loading v-if="num != 1"></loading>
   </div>
 </template>
 
 <script>
 import { Loading } from "element-ui";
+import loading from "../../components/common/loading";
 export default {
   data() {
     return {
       data: [],
       data1: [],
       data2: [],
-      n:""
+      n:"",
+      num:1
     };
   },
   name: "app",
   components: {
     // Home
+    loading
   },
   created() {
+    this.num -= 1
     let api = "/api/v1/cities?type=guess";
     this.axios.get(api).then(data => {
       this.data = data.data;
-    });
+      this.num +=1    });
 
     let api1 = "/api/v1/cities?type=hot" + "#" + Math.random();
     this.axios.get(api1).then(data1 => {

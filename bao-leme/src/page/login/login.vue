@@ -1,6 +1,9 @@
 <template>
 <div>
-    <Aheader :inputName="name"></Aheader>
+     <div id="box">
+      <router-link id="ele"  :to="{name:'app'}"><i class="el-icon-arrow-left" style="position:absolute;left:.1rem;font-size:.2rem;font-weight: bolder;color:white"></i></router-link>
+      <div style=" text-align:center;"><span style="font-size:.2rem; font-weight: bolder;color:white">{{name}}</span></div>
+        </div>
     <div id="login">
       <div class="input"  style="windth:100%;background:white"><input class="padding-i" type="text" placeholder="账号" v-model="username"></div>
       <div class="input" style="windth:100%;background:white;position: relative;"><input class="padding-i" :type="type" placeholder="密码" v-model="password"> <div id="box_change" style="font-size:.15rem;background:#A9A9A9;position:absolute;right:.1rem;top:.21rem;width:.48rem;border-radius: .05rem;color:white">on <div id="box_box" @click="pass" style="border-radius: 50%;position:absolute;top:-0.05rem;left:-0.018rem;background:#696969;width:.25rem;height:.25rem;"></div> off</div></div>
@@ -112,6 +115,14 @@ export default {
 </script>
 
 <style scoped>
+#box {
+  background-color: #0474f5f1;
+  height: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
 input {
   font-size: 0.2rem;
   padding: 0.2rem 0;

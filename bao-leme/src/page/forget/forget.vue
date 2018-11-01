@@ -29,15 +29,18 @@
               </li>        
        </ul>
             <tsk :alertValue="alertValue" ></tsk>
+            <loading v-if="num != 1"></loading>
     </div>
 </template>
 
 <script>
 import tsk from "../../components/common/alertTip";
+import loading from "../../components/common/loading";
 export default {
   name: "forget",
   components: {
-    tsk
+    tsk,
+    loading
   },
   data() {
     return {
@@ -52,30 +55,33 @@ export default {
       alertValue: {
         msg: "",
         isShow: ""
-      }
+      },
+      num:1
     };
   },
   created() {
+    this.num -= 1;
     console.log(this.message);
     let api = "/api/v1/captchas";
     this.axios.post(api).then(data => {
       this.img = data.data.code;
+      this.num += 1;
     });
   },
   methods: {
     change() {
+      this.num -= 1;
       let api = "/api/v1/captchas";
       this.axios.post(api).then(data => {
         this.img = data.data.code;
         console.log(data);
+        this.num += 1
       });
     },
     btn() {
       // this.tsks = !this.tsk;
       // this.tss = this.message;
-
-     
-
+      this.num -= 1;
       let api =
         "/api/v2/changepassword?username=" +
         this.username +
@@ -88,6 +94,7 @@ export default {
         "captcha_code" +
         this.code;
       this.axios.post(api).then(data => {
+        this.num += 1;
         this.message = data.data.message;
          this.alertValue = {
         msg: this.message,

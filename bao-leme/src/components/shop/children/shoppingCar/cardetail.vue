@@ -15,22 +15,25 @@
         </div>
         <div class="shopping-car">
         <div class="car-left" @click="handle()">
-            <p class="car">car</p>
-            <p>${{price2}}</p>
+            <p class="car"><img id="images" :src="imagess" alt=""></p>
+            <p class="size">￥: {{price2}}</p>
         </div>
         <div class="car-right" v-if="jiesuan">还差$20起送</div>
         <div class="car-right2" v-else>
-            <router-link :to="{name:'jiesuan'}">去结算</router-link>
+            <router-link style="color:white" :to="{name:'jiesuan',params:{id:this.$route.params.id}}">去结算</router-link>
         </div>
     </div>
     </div>
 </template>
 <script>
+import images from "../../../../images/buycart1.png"
 export default {
     name:'cardetail',
     data(){
         return {
-            show:false
+            show:false,
+            id:"",
+            imagess:images
         }
     },
     computed:{
@@ -89,16 +92,14 @@ export default {
     display: flex;
 }
 .car{
-    width:.6rem;
-    height: 0.6rem;
-    text-align: center;
-    line-height: .6rem;
-    background-color: blueviolet;
     color: white;
+    background:black;
+    border-radius: 50%;
+    margin-left: .3rem;
 }
 .car-left{
     display: flex;
-    background-color: black;
+    background-color: gray;
     color: white;
     width: 70%;
     text-align: center;
@@ -160,6 +161,16 @@ export default {
 }
 .car-content p{
     float: left;
+}
+#images{
+    width:.3rem;
+    padding:.15rem;
+    border-radius: 50%;
+    background:black;
+}
+.size{
+    position: absolute;
+    left:20%;
 }
 </style>
 

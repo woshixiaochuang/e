@@ -96,7 +96,7 @@ export default {
     },
     methods:{
         handle(){
-            this.$router.go(-1);
+            this.$router.push({path:"/shopsLiebiao/"+this.$route.params.id});
         },
         remark(){
             this.$router.push({name:`remark`})
