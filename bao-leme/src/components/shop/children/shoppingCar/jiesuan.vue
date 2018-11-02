@@ -37,7 +37,7 @@
         <div class="color-gray"></div>
         <div class="pay-information">
             <ul>
-                <li>aaaa111</li>
+                <li>您的购物列表</li>
                 <li v-for="(item,index) in informations" :key="index">
                     <span>{{item.foods[0].name}}</span>
                     <span class="infor-right">$20</span>
