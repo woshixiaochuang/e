@@ -55,6 +55,9 @@ jiesuan(state){
   },
   //修改标题
   changetitle(state,value){
-      state.title = value;
+      state.title = value;},
+  //给购物车id
+  shoppingcarid(state,carid){
+    this.state.id = carid;
   }
 }

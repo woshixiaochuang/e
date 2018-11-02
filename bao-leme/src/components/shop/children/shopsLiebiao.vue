@@ -77,6 +77,7 @@ export default {
   },
   watch: {
     order() {
+      this.num -= 1
        let api =
       "/api/shopping/restaurants?latitude=" +
       this.latitude +
@@ -86,9 +87,11 @@ export default {
       this.order;
     this.$http.get(api).then(data => {
       this.data = data.data;
+      this.num += 1
     });
     },
     obj() {
+      this.num -= 1
       let s = [...this.obj];
       if (s.length == 0) {
         let api1 =
@@ -98,6 +101,7 @@ export default {
           this.longitude;
         this.$http.get(api1).then(data => {
           this.data = data.data;
+          this.num +=1;
         });
       } else if (s.length == 1) {
         let api1 =
@@ -108,6 +112,7 @@ export default {
           "&support_ids[]="+s[0];
         this.$http.get(api1).then(data => {
           this.data = data.data;
+           this.num +=1;
         });
       } else if (s.length == 2){
          let api1 =
@@ -119,6 +124,7 @@ export default {
           "&support_ids[]="+s[1];
         this.$http.get(api1).then(data => {
           this.data = data.data;
+           this.num +=1;
         });
       } else if (s.length == 3){
          let api1 =
@@ -131,6 +137,7 @@ export default {
           "&support_ids[]="+s[2];
         this.$http.get(api1).then(data => {
           this.data = data.data;
+           this.num +=1;
         });
       } else if (s.length == 4){
          let api1 =
@@ -144,6 +151,7 @@ export default {
           "&support_ids[]="+s[3]
         this.$http.get(api1).then(data => {
           this.data = data.data;
+           this.num +=1;
         });
       } else if (s.length == 5){
          let api1 =
@@ -158,6 +166,7 @@ export default {
           "&support_ids[]="+s[4];
         this.$http.get(api1).then(data => {
           this.data = data.data;
+           this.num +=1;
         });
       } else if (s.length == 6){
          let api1 =
@@ -173,10 +182,12 @@ export default {
           "&support_ids[]="+s[5];
         this.$http.get(api1).then(data => {
           this.data = data.data;
+           this.num +=1;
         });
       }
     },
     id() {
+      this.num -= 1;
        let api =
       "/api/shopping/restaurants?latitude=" +
       this.latitude +
@@ -186,9 +197,11 @@ export default {
       this.id;
     this.$http.get(api).then(data => {
       this.data = data.data;
+      this.num += 1
     });
     },
     psid() {
+      this.num -= 1
       if (this.psid == 1) {
         this.psids = this.psid;
         let api =
@@ -199,6 +212,7 @@ export default {
           "&delivery_mode[]=1";
         this.$http.get(api).then(data => {
           this.data = data.data;
+          this.num += 1
         });
       } else {
         let api1 =
@@ -208,6 +222,7 @@ export default {
           this.longitude;
         this.$http.get(api1).then(data => {
           this.data = data.data;
+           this.num += 1
         });
       }
     }

@@ -32,7 +32,7 @@
       </div>
       </div>
     </div>
-    <cardetail></cardetail>
+    <cardetail :clear="clear"></cardetail>
   </div>
 </template>
 
@@ -44,14 +44,17 @@ export default {
   data(){
     return{  
       changeRed:0,
-      prices:0.00
+      prices:0.00,
+      clear:""
     }
   },
   computed:{
     data1(){
       return this.$store.state.en
+    },
+    shoppingcar(){
+      return this.$store.state.id
     }
-   
   },
   components:{
     cardetail
@@ -81,6 +84,16 @@ export default {
       // console.log(data)
     })
     
+  },
+  watch:{
+    shoppingcar(newValue,oldVaue) {
+      // console.log(newValue,oldVaue);
+      if(newValue == oldVaue){
+        this.clear = true;
+      }else{
+        this.clear = false;
+      }
+    }
   }
 }
 </script>

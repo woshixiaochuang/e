@@ -6,5 +6,9 @@ export default {
     show:false,
     geohash:3.141314312,
     address:"",
-    title:""
+
+    title:"",
+
+    id:""
+
 };

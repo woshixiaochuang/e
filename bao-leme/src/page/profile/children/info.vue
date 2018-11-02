@@ -29,116 +29,125 @@
             </div>
         </div>
         <button @click="exit" class="exit">退出登录</button>
-        <Alert alert-value="确定退出"></Alert>
+        <Alert  :alertValue="alertValue"></Alert>
     </div>
 </template>
 <script>
-  import Aheader from "../../../components/header/header.vue"
-  import Alert from "../../../components/common/alertTip.vue"
-   export default {
-       name:'info',
-       components:{
-           Aheader,Alert
-       },
-       data(){
-           return{
-               name:"账户信息",
-               username:'',
-               show:true
-           }
-       },
+import Aheader from "../../../components/header/header.vue";
+import Alert from "../../../components/common/alertTip.vue";
+export default {
+  name: "info",
+  components: {
+    Aheader,
+    Alert
+  },
+  data() {
+    return {
+      name: "账户信息",
+      username: "",
+      show: true,
+      alertValue: {}
+    };
+  },
 
-       created() {
-           let api = "https://elm.cangdu.org/v1/user";
-           this.axios({
-                method: "get",
-                url: api,
-                 withCredentials: true
-           }).then(
-               data=>{
-                   console.log(data.ata);
-                   this.username=data.data.username
-               }
-           )
-       },
-       methods:{
-           exit(){
-               let api = "https://elm.cangdu.org/v2/signout";
-               this.axios.get(api).then(
-                   this.$router.push({
-                       path:"/profile"
-                   }),
-                  localStorage.clear()
-               )
-           }
-       }
-   }    
+  created() {
+    let api = "https://elm.cangdu.org/v1/user";
+    this.axios({
+      method: "get",
+      url: api,
+      withCredentials: true
+    }).then(data => {
+      this.username = data.data.username;
+    });
+  },
+  methods: {
+    exit() {
+       let _this = this
+      this.alertValue = {
+        msg: "确定退出",
+        isshow: true,
+        btn: "确定",
+        zhifu: "profile",
+        cb() {
+          let api = "https://elm.cangdu.org/v2/signout";
+          _this.axios.get(api).then(
+            _this.$router.push({
+              path: "/profile"
+            }),
+            localStorage.clear()
+          );
+        }
+      };
+    }
+  }
+};
 </script>
 <style scoped>
-.info{
-    font-size: .2rem;
-     background-color: white;
+.info {
+  font-size: 0.2rem;
+  background-color: white;
 }
-.photo{
-    width: 100%;
-    height: .8rem;
-    border-top: .1rem solid rgb(229, 234, 235);
-    display: flex;
-    align-items: center
+.photo {
+  width: 100%;
+  height: 0.8rem;
+  border-top: 0.1rem solid rgb(229, 234, 235);
+  display: flex;
+  align-items: center;
 }
-.photo img{
-    height: 80%;
-    margin-left: 64%;
-    border:1px solid red
+.photo img {
+  height: 80%;
+  margin-left: 64%;
+  border: 1px solid red;
 }
-.photo span{
-    margin-left: .1rem;
+.photo span {
+  margin-left: 0.1rem;
 }
-.username{
-    width: 100%;
-    padding: .1rem;
-    border-top: .05rem solid rgb(229, 234, 235);
-    position: relative;
+.username {
+  width: 100%;
+  padding: 0.1rem;
+  border-top: 0.05rem solid rgb(229, 234, 235);
+  position: relative;
 }
-.id{
-    position: absolute;
-    right: 0.3rem;
+.id {
+  position: absolute;
+  right: 0.3rem;
 }
-.address,p{
-    padding: .1rem;
-    border-top: .05rem solid rgb(229, 234, 235);
+.address,
+p {
+  padding: 0.1rem;
+  border-top: 0.05rem solid rgb(229, 234, 235);
 }
-p{
-    font-size: .1rem;
-    background-color: #eaf0f0f1;
-    width: 100%;
-    padding: .1rem
+p {
+  font-size: 0.1rem;
+  background-color: #eaf0f0f1;
+  width: 100%;
+  padding: 0.1rem;
 }
-.phone{
-    padding: .1rem;
-    display: flex;
-    align-items: center;
+.phone {
+  padding: 0.1rem;
+  display: flex;
+  align-items: center;
 }
 .phone img {
-    height: .4rem;
+  height: 0.4rem;
 }
-.alter{
-    font-size: .2rem;
-    padding:.1rem;
-    display: flex;
-    align-items: center;
+.alter {
+  font-size: 0.2rem;
+  padding: 0.1rem;
+  display: flex;
+  align-items: center;
 }
-.alter span{
-padding:.1rem;
+.alter span {
+  padding: 0.1rem;
 }
-.exit{
-    width: 90%;
-    background-color: rgb(236, 73, 73);
-    color: white;
-    height: .4rem;
-    margin-top: .2rem;
-    margin-left: 5%;
-    border-radius: .1rem;
+.exit {
+  width: 90%;
+  background-color: rgb(236, 73, 73);
+  color: white;
+  height: 0.4rem;
+  margin-top: 0.2rem;
+  margin-left: 5%;
+  border-radius: 0.1rem;
 }
 </style>
 

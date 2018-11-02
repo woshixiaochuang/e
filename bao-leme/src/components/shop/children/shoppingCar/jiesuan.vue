@@ -84,11 +84,6 @@
 <script>
 export default {
     name:'jiesuan',
-    data(){
-        return {
-
-        }
-    },
     computed:{
         informations(){
             return this.$store.state.arr.filter(num => num.foods[0].specfoods[0].count !=0);
@@ -96,7 +91,12 @@ export default {
     },
     methods:{
         handle(){
-            this.$router.push({path:"/shopsLiebiao/"+this.$route.params.id});
+            if(this.$route.params.id){
+                this.$router.push({path:"/shopsLiebiao/"+this.$route.params.id});
+            }else{
+                 this.$router.go(-1)
+            }
+            
         },
         remark(){
             this.$router.push({name:`remark`})

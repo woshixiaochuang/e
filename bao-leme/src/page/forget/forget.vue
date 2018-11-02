@@ -54,7 +54,7 @@ export default {
       message: "",
       alertValue: {
         msg: "",
-        isShow: ""
+        isshow: ""
       },
       num:1
     };
@@ -98,7 +98,12 @@ export default {
         this.message = data.data.message;
          this.alertValue = {
         msg: this.message,
-        isShow: true
+        isshow: true,
+        btn:"关闭",
+        zhifu:null,
+        cb(){
+          return null
+        }
       };
       });
     }

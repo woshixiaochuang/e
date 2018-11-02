@@ -1,11 +1,11 @@
 <template>
 
-    <div id="tsk" v-if="flag">
+    <div id="tsk" v-show="flag">
         <!-- <p>{{tsk}}--{{flag}}</p> -->
         <img id="img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540544307786&di=3348937e5c2bbae6f5aec5dc2dfa8059&imgtype=0&src=http%3A%2F%2F58pic.ooopic.com%2F58pic%2F15%2F55%2F94%2F38P58PICKEI.png%2521%2Ffw%2F780%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue">
         {{alertValue.msg}}
         <br>
-        <button style="position:absolute;bottom:.2rem;right:0.2rem;width:.6rem" @click="change()" >关闭</button>
+        <button style="position:absolute;bottom:.2rem;right:0.2rem;width:.6rem" @click="change()" >{{alertValue.btn}}</button><button style="position:absolute;bottom:.2rem;left:0.2rem;width:.6rem"  @click="pushs()" v-if="pushusno">关闭</button>
     </div>
 </template>
 
@@ -16,18 +16,31 @@ export default {
 //   components: {},
   data() {
     return {
-      flag: false
+      flag: false,
+      pushusno:false
     };
   },
   methods: {
     change() {
       this.flag = !this.flag;
+      
+        this.alertValue.cb();
+     
+      if(this.alertValue.zhifu){
+        this.$router.push({name:this.alertValue.zhifu});
+      }
+    },
+    pushs(){
+       this.flag = !this.flag;
     }
   },
   watch: {
     alertValue() {
       console.log("变了");
-      this.flag = this.alertValue.isShow;
+      this.flag = this.alertValue.isshow;
+      if(this.alertValue.zhifu){
+     this.pushusno = true
+    }
     }
   }
 };
