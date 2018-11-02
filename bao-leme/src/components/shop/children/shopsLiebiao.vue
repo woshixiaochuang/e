@@ -5,7 +5,7 @@
       <img class="shopTop-img" src="" alt="">
     </div>
     <div class="shopListings">
-       <div class="shop-content" v-for="(item,index) in data" :key="index">
+       <div @click="btnsss(item)" class="shop-content" v-for="(item,index) in data" :key="index">
           <router-link :to="{name:'shopsDange',params:{id:item.id}}">
             <div class="shop-informations-images">
                <img class="shop-Images" :src="'https://elm.cangdu.org/img/'+item.image_path" alt="">
@@ -71,9 +71,17 @@ export default {
       "&order_by=" +
       this.order_by;
     this.$http.get(api).then(data => {
-      this.data = data.data;
       this.num += 1
+      this.data = data.data;
     });
+    
+  },
+  methods:{
+    btnsss(data){
+      localStorage.setItem("shangpuId",data.id)
+      let newjwd = data.location[0]+","+data.location[1]
+      localStorage.setItem("shangpujwd",newjwd)
+    }
   },
   watch: {
     order() {

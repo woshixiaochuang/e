@@ -3,7 +3,8 @@
         <div id="box">
       <router-link id="ele"  :to="{name:'search'}"><i class="el-icon-search" style="position:absolute;left:.1rem;font-size:.2rem;font-weight: bolder;color:white"></i></router-link>
       <div style=" text-align:center;"><span @click="city()" style="font-size:.2rem; font-weight: bolder;color:white">{{name}}</span></div>
-      <img :src="img" @click="change()" style="width:.31rem;position:absolute;right:.1rem;">
+      <img v-if="logings" :src="img" @click="change()" style="width:.31rem;position:absolute;right:.1rem;">
+       <router-link style="color:white;position:absolute;right:.1rem;" v-else :to="{name:'login'}">登录|注册</router-link>
         </div>
          <div class="top" style="height:2.1rem;width:100%;background:white;position: relative;overflow: hidden;"><!--overflow: hidden; -->
             <v-touch v-on:swipeleft="swiperleft()" v-on:swiperight="swiperight()">
@@ -58,10 +59,16 @@ export default {
       leftchange:"",
       leftd:"",
       msg:Shoppingimgs,
-      num:1
+      num:1,
+      logings:false
     };
   },
   created() {
+    if(localStorage.username != null&&localStorage.password != null){
+      this.logings = true
+    }else{
+      this.logings = false
+    }
     this.num -= 2
     this.geohash = this.$route.params.geohash;
     let api ="/api/shopping/restaurants?latitude=" +

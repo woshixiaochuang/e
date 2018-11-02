@@ -4,7 +4,8 @@
       <div id="box">
       <router-link id="ele"  to="/">ele.me</router-link>
       <div id="login">
-      <router-link :to="{name:'login'}">登录|注册</router-link>
+       <img v-if="logings"  style="width:.31rem;" :src="img" @click="change()">
+       <router-link  v-else :to="{name:'login'}">登录|注册</router-link>
       </div>
       </div>
     </div> 
@@ -38,6 +39,7 @@
 <script>
 import { Loading } from "element-ui";
 import loading from "../../components/common/loading";
+import imgs from "../../images/default.png";
 export default {
   data() {
     return {
@@ -45,7 +47,8 @@ export default {
       data1: [],
       data2: [],
       n:"",
-      num:1
+      num:1,
+       img: imgs,
     };
   },
   name: "app",
@@ -54,6 +57,11 @@ export default {
     loading
   },
   created() {
+    if(localStorage.username != null&&localStorage.password != null){
+      this.logings = true
+    }else{
+      this.logings = false
+    }
     this.num -= 1
     let api = "/api/v1/cities?type=guess";
     this.axios.get(api).then(data => {
@@ -71,6 +79,9 @@ export default {
     });
   },
   methods: {
+      change() {
+      this.$router.push({name:"profile"});
+    },
     sort(arys) {
       //先用Object内置类的keys方法获取要排序对象的属性名，再利用Array原型上的sort方法对获取的属性名进行排序，newkey是一个数组
       var newkey = Object.keys(arys).sort();
