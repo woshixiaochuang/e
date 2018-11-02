@@ -86,6 +86,14 @@ export default {
       }).then(data => {
         if (data.data.message) {
           alert(data.data.message);
+          let api = "https://elm.cangdu.org/v1/captchas";
+          this.axios({
+            method: "post",
+            url: api,
+            withCredentials: true
+          }).then(data => {
+            this.img = data.data.code;
+          })
           this.cartoon += 1;
         } else {
           console.log(data.data);

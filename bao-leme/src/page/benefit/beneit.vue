@@ -3,8 +3,8 @@
       <Aheader :input-name="message"></Aheader>
 
       <div class="titles">
-       <span class="title" @click="showss($event);show = true">红包</span>
-        <span id="sp1" class="title" @click="showss($event);show = false">商家代金券</span>
+       <div class="title" @click="showss($event);show = true">红包</div>
+        <div id="sp1" class="title" @click="showss($event);show = false">商家代金券</div>
       </div>
       <div v-if="show">
         <div style="width: 100%;overflow: hidden;">
@@ -32,10 +32,10 @@
       </router-link>
       <div style="width: 100%;background-color: #fff;" class="dibu">
         <router-link to="/benefit/exchange">
-        <span>兑换红包</span>
+        <div>兑换红包</div>
         </router-link>
         <router-link  to="/benefit/commend">
-        <span>推荐有奖</span>
+        <div>推荐有奖</div>
         </router-link>
       </div>
       </div>
@@ -102,13 +102,15 @@
   .titles{
     width: 100%;
     background-color: #fff;
+    overflow: hidden;
   }
 .title{
   display: inline-block;
-  width:40%;
+  width:50%;
+  float: left;
   font-size: .2rem;
-  padding: 4%;
   text-align: center;
+  padding: .1rem 0;
 }
 .price{
   width: 25%;
@@ -130,12 +132,15 @@
   .dibu{
     position: absolute;
     bottom: 0;
+    overflow: hidden;
   }
-  .dibu span{
+  .dibu div{
     display: inline-block;
-    width:40%;
+    width:50%;
+    float: left;
     text-align: center;
-    padding: 4%;
+    padding: .1rem 0;
+    margin-left: 0;
   }
   .con{
     width: 90%;
