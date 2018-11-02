@@ -14,7 +14,7 @@
                 <div>
                     <router-link to="/balance/detail">
                 <img src="../../images/help.png">
-                <span class="state">余额说明</span>
+                <div class="state">余额说明</div>
                    </router-link>
                 </div>
                    </el-col>
@@ -67,6 +67,7 @@
     margin-top: .1rem
 }
 .state{
+  display: inline-block;
     color:#0474f5f1
 }
 p {

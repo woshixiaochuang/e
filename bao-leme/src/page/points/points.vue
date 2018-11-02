@@ -14,7 +14,7 @@
                 <div>
                     <router-link to="/points/detail">
                 <img src="../../images/help.png">
-                <span class="state">积分说明</span>
+                <div class="state">积分说明</div>
                    </router-link>
                 </div>
                    </el-col>
@@ -67,7 +67,8 @@
     margin-top: .1rem
 }
 .state{
-    color:#0474f5f1
+  display: inline-block;
+    color:#0474f5f1;
 }
 p {
     font-size: .5rem;
