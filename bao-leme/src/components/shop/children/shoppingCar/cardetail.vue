@@ -37,9 +37,6 @@ export default {
       imagess: images
     };
   },
-  created() {
-      console.log(this.clear)
-  },
   computed: {
     newshop() {
       return this.$store.state.arr.filter(

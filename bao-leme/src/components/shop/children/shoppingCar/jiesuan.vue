@@ -84,11 +84,6 @@
 <script>
 export default {
     name:'jiesuan',
-    data(){
-        return {
-
-        }
-    },
     computed:{
         informations(){
             return this.$store.state.arr.filter(num => num.foods[0].specfoods[0].count !=0);

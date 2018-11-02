@@ -87,14 +87,12 @@ export default {
   },
   watch:{
     shoppingcar(newValue,oldVaue) {
-      console.log(newValue,oldVaue);
-      // console.log(this.shoppingcar)
+      // console.log(newValue,oldVaue);
       if(newValue == oldVaue){
         this.clear = true;
       }else{
         this.clear = false;
       }
-      console.log(this.clear)
     }
   }
 }
