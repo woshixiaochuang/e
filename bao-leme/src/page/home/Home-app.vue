@@ -2,10 +2,10 @@
   <div id="app">
     <div id="top">
       <div id="box">
-      <router-link id="ele"  to="/">ele.me</router-link>
+      <router-link style="color:white;position:absolute;left:.05rem;top:.12rem;font-size:.20rem" id="ele"  to="/">ele.me</router-link>
       <div id="login">
        <img v-if="logings"  style="width:.31rem;position:absolute;right:.1rem;top:0.1rem" :src="img" @click="change()">
-       <router-link style="font-size:.2rem; font-weight: bolder;color:white"  v-else :to="{name:'login'}">登录|注册</router-link>
+       <router-link style="font-size:.2rem; font-weight: bolder;color:white;position:absolute;right:.1rem;top:0.15rem"  v-else :to="{name:'login'}">登录|注册</router-link>
       </div>
       </div>
     </div> 
