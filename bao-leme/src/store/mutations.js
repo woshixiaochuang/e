@@ -45,10 +45,16 @@ jiesuan(state){
     this.state.show = false;
   }
 },
+  //修改地址
   changeaddress(state,value){
       state.address = value;
   },
+  //修改经纬度
   changegeohash(state,value){
       state.geohash =  value;
+  },
+  //修改标题
+  changetitle(state,value){
+      state.title = value;
   }
 }

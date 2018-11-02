@@ -100,7 +100,7 @@ export default {
       link:"login",
       subtitle: [
         { img: scar, title: "我的订单",path:"/order"},
-        { img: score, title: "积分商城",path:"/" },
+        { img: score, title: "积分商城",path:"/points/detail" },
         { img: vip, title: "饿了么会员卡",path:"vipcard"}
       ]
     };

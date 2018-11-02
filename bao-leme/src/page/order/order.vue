@@ -17,7 +17,7 @@
           <span style="float: right">￥{{item.total_amount}}</span>
           <br>
           <div style="float: right;padding-top: .1rem">
-            <button class="time">去支付还剩(10分12秒)</button>
+            <button class="time">{{residue}}</button>
           </div>
         </div>
       </div>
@@ -41,7 +41,8 @@ components:{
   return {
     message:"我的订单",
     order:[],
-    cartoon:1
+    cartoon:1,
+    residue:""
   }
   },
   created(){
@@ -51,7 +52,22 @@ components:{
     this.axios.get(api).then(
       data=>{
         this.order = data.data;
-        this.cartoon += 1;
+        console.log(data.data);
+
+        let  ss = this.order
+       console.log(ss[0].order_time);
+        var time = ss[0].order_time +900000 - new Date().valueOf();
+        var timeID =  setInterval( ()=> {
+          if(time>= 0){
+            this.residue = "支付剩余时间"+new Date(time).getMinutes()+"分"+new Date(time).getSeconds()+"秒";
+            this.cartoon += 1;
+          }else{
+            this.residue = "支付超时";
+            this.cartoon += 1;
+            clearInterval(timeID);
+          }
+        },1000)
+
       }
     )
     }else{

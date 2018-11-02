@@ -37,6 +37,7 @@ import addname from "../page/confirmOrder/children/children/addname"
 
 import Invoice from "../components/shop/children/invoice"
 import Remark from "../components/shop/children/remark"
+import Questiondetail from  "../page/service/children/questionDetail"
 
 Vue.use(Router)
 
@@ -198,6 +199,9 @@ export default new Router({
       name:"remark",
       component:Remark
     },
-
+    {
+      path:"/service/questionDetail",
+      component:Questiondetail
+    }
   ]
 })
