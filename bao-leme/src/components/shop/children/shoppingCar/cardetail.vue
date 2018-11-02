@@ -26,132 +26,129 @@
     </div>
 </template>
 <script>
-import images from "../../../../images/buycart1.png"
+import images from "../../../../images/buycart1.png";
 export default {
-    name:'cardetail',
-    data(){
-        return {
-            show:false,
-            id:"",
-            imagess:images
-        }
+  name: "cardetail",
+  props:["clear"],
+  data() {
+    return {
+      show: false,
+      id: "",
+      imagess: images
+    };
+  },
+  created() {
+      console.log(this.clear)
+  },
+  computed: {
+    newshop() {
+      return this.$store.state.arr.filter(
+        num => num.foods[0].specfoods[0].count != 0
+      );
     },
-    created(){
-       let ss =  this.newshop
-       console.log(ss)
-       if(ss.length != 0){
-           this.$store.commit("qk");
-        // this.show=this.$store.state.show;
-         this.show= false
-       }
+    price2() {
+      if (this.$store.state.price.length == 0) {
+        return this.$store.state.price2;
+      } else {
+        return this.$store.state.price;
+      }
     },
-    computed:{
-        newshop(){
-            return this.$store.state.arr.filter(num => num.foods[0].specfoods[0].count !=0)
-        },
-    price2(){
-        if(this.$store.state.price.length==0){
-            return this.$store.state.price2;
-        }else{
-            return this.$store.state.price;
-        }
-    },
-    jiesuan(){
-        this.$store.commit("jiesuan");
-        return this.$store.state.show;
+    jiesuan() {
+      this.$store.commit("jiesuan");
+      return this.$store.state.show;
     }
+  },
+  methods: {
+    handle() {
+      if (this.newshop == "") {
+        this.show = false;
+      } else {
+        this.show = !this.show;
+      }
     },
-    methods:{
-        handle(){
-            if(this.newshop==""){
-                this.show = false;
-            }else{
-                this.show = !this.show;
-            }
-        },
-    plus(id){
+    plus(id) {
       this.$store.commit("add", id);
     },
-    subtract(id){
-       this.$store.commit("remove", id);
+    subtract(id) {
+      this.$store.commit("remove", id);
     },
-    qk(){
-        this.$store.commit("qk");
-        // this.show=this.$store.state.show;
-         this.show= !this.show
+    qk() {
+      this.$store.commit("qk");
+      // this.show=this.$store.state.show;
+      this.show = !this.show;
     }
-    }
-}
+  }
+};
 </script>
 <style>
-.bigcar{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+.bigcar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
-.car-information{
-    color: red;
-    background-color: white;
-    
+.car-information {
+  color: red;
+  background-color: white;
 }
-.shopping-car{
-    width: 100%;
-    height: 0.6rem;  
-    display: flex;
+.shopping-car {
+  width: 100%;
+  height: 0.6rem;
+  display: flex;
 }
-.car{
-    color: white;
-    background:black;
-    border-radius: 50%;
-    margin-left: .3rem;
+.car {
+  color: white;
+  background: black;
+  border-radius: 50%;
+  margin-left: 0.3rem;
 }
-.car-left{
-    display: flex;
-    background-color: gray;
-    color: white;
-    width: 70%;
-    text-align: center;
+.car-left {
+  display: flex;
+  background-color: gray;
+  color: white;
+  width: 70%;
+  text-align: center;
 }
-.car-left p:nth-child(2){
-    margin-left: 0.5rem;
-    margin-top: 0.2rem;
-    font-size: 0.2rem;
+.car-left p:nth-child(2) {
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
+  font-size: 0.2rem;
 }
-.car-right{
-    background-color: gray;
-    color: white;
-    width:30%;
-    text-align: center;
-    line-height: .6rem;
+.car-right {
+  background-color: gray;
+  color: white;
+  width: 30%;
+  text-align: center;
+  line-height: 0.6rem;
 }
-.car-right2{
-    background-color: green;
-    color: white;
-    width:30%;
-    text-align: center;
-    line-height: .6rem;
+.car-right2 {
+  background-color: green;
+  color: white;
+  width: 30%;
+  text-align: center;
+  line-height: 0.6rem;
 }
-.car-top{
-    width: 100%;
-    height: 0.4rem;
-    line-height: 0.4rem;
-    background-color: rgb(187, 184, 184);
+.car-top {
+  width: 100%;
+  height: 0.4rem;
+  line-height: 0.4rem;
+  background-color: rgb(187, 184, 184);
 }
-.car-content{
-    border-bottom: 0.01rem solid gray;
-    padding: 0.2rem;
+.car-content {
+  border-bottom: 0.01rem solid gray;
+  padding: 0.2rem;
 }
-.car-top span:nth-child(1){
-    color: rgb(58, 57, 57);
-    margin-left: 0.2rem;
+.car-top span:nth-child(1) {
+  color: rgb(58, 57, 57);
+  margin-left: 0.2rem;
 }
-.car-top span:nth-child(2){
-    float: right;
-    color: rgb(58, 57, 57);
-    margin-right: 0.2rem;
+.car-top span:nth-child(2) {
+  float: right;
+  color: rgb(58, 57, 57);
+  margin-right: 0.2rem;
 }
-.plus2,.subtract2{
+.plus2,
+.subtract2 {
   width: 0.15rem;
   height: 0.15rem;
   color: white;
@@ -161,25 +158,25 @@ export default {
   border-radius: 50%;
   float: right !important;
 }
-.shuliang2{
+.shuliang2 {
   color: red;
   float: right !important;
 }
-.price2{
-    margin-left: 0.7rem;
+.price2 {
+  margin-left: 0.7rem;
 }
-.car-content p{
-    float: left;
+.car-content p {
+  float: left;
 }
-#images{
-    width:.3rem;
-    padding:.15rem;
-    border-radius: 50%;
-    background:black;
+#images {
+  width: 0.3rem;
+  padding: 0.15rem;
+  border-radius: 50%;
+  background: black;
 }
-.size{
-    position: absolute;
-    left:20%;
+.size {
+  position: absolute;
+  left: 20%;
 }
 </style>
 

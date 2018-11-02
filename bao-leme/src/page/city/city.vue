@@ -81,6 +81,7 @@ export default {
         alert("输入为空");
         this.ls = true;
       } else {
+        this.num -= 1;
         this.ls = false;
         let api =
           "/api/v1/pois?city_id=" +
@@ -89,6 +90,7 @@ export default {
           this.value +
           "&type=search";
         this.axios.get(api).then(data => {
+          this.num +=1
           this.data = data.data;
         });
       }

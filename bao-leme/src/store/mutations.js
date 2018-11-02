@@ -50,5 +50,9 @@ jiesuan(state){
   },
   changegeohash(state,value){
       state.geohash =  value;
+  },
+  //给购物车id
+  shoppingcarid(state,carid){
+    this.state.id = carid;
   }
 }

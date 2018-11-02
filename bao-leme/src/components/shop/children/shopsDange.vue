@@ -1,7 +1,7 @@
 <template>
 <div class="detailed-information">
     <div class="shopsDetailed-top">
-        <i class="el-icon-arrow-left" id="fanhui" @click="url()"></i>
+        <i class="el-icon-arrow-left" id="fanhui" @click="topurl()"></i>
         <router-link class="el-icon-arrow-right" id="jiantouOne" :to="{name:'shopdetail',params:{id:$route.params.id}}"></router-link>
         <div class="topImages-mohu">
             <img :src="'https://elm.cangdu.org/img/'+data.image_path" alt="">
@@ -27,15 +27,13 @@
         </div>
         <component :is="cc"></component>
     </div>
-    <loading v-if="num != 1"></loading>
 </div>
 </template>
 
 <script>
 import { Loading } from "element-ui";
 import shangpin from './shopsDange-zujian/shangpin';
-import pingjia from './shopsDange-zujian/pingjia';
-import loading from "../../common/loading";
+import pingjia from './shopsDange-zujian/pingjia'
 export default {
   name: 'shopsDange',
   data() {
@@ -46,20 +44,18 @@ export default {
       cc:"shangpin",
       changeRed:true,
       loading:true,
-      num:1
     };
   },
   components:{
       shangpin,
-      pingjia,
-      loading
+      pingjia
   },
   methods:{
       handle(value,value2){
           this.cc = value;
           this.changeRed=value2;
       },
-      url(){
+      topurl(){
           if(this.$route.params.id == null){
                this.$router.go(-1)
           }else{
@@ -68,14 +64,13 @@ export default {
       }
   },
   created(){
-      this.num -= 1;
+     
     let loadingInstance1 = Loading.service({ fullscreen: true });
     var id = this.$route.params.id;
-    let api = "https://elm.cangdu.org/shopping/restaurant/"+id;
-    this.$http.get(api).then((data)=>{
+    let api = "/api/shopping/restaurant/"+id;
+    this.axios.get(api).then((data)=>{
           this.data = data.data;
-          this.num += 1
-        //   console.log(this.data)
+          this.$store.commit("shoppingcarid",this.data.id)
         });
         loadingInstance1.close();
         this.loading = false;
@@ -136,6 +131,7 @@ export default {
 }
 .topInformation{
     float: left;
+    width:80%;
 }
 .topInformation p {
     color: white;
