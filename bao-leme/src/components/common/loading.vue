@@ -1,7 +1,7 @@
 <template>
   <div id="elmloading">
     <div class="imgbox">
-      <div class="img">
+      <div class="img" :style="{ background: 'url('+imgaa+') no-repeat'}">
       </div>
     </div>
     <div class="loadfoot">
@@ -11,11 +11,11 @@
 </template>
 
 <script>
-
+import imgc from "../../images/loading.png"
   export default {
     data () {
       return {
-
+        imgaa:imgc
       }
     }
   }
@@ -34,15 +34,13 @@
     z-index:100;
   }
   .imgbox{
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     animation: myfirst 0.8s infinite;
   }
   .img{
     height: 100%;
     width: 100%;
-    background: url('../../images/loading.png') no-repeat;
-    background-size:100%;
     animation: myf 5.6s infinite;
   }
   .loadfoot{
