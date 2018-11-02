@@ -71,7 +71,7 @@ export default {
     }
     this.num -= 2
     this.geohash = this.$route.params.geohash;
-    let api ="/api/shopping/restaurants?latitude=" +
+    let api ="https://elm.cangdu.org/shopping/restaurants?latitude=" +
       this.latitude +
       "&longitude=" +
       this.longitude +
@@ -80,7 +80,7 @@ export default {
       this.shopping=data.data;
       this.num += 1;
     });
-    let api1 = "/api/v2/index_entry";
+    let api1 = "https://elm.cangdu.org/v2/index_entry";
     this.axios.get(api1).then(data =>{
         this.title = this.shoppingTitle(data.data); 
         this.num += 1;

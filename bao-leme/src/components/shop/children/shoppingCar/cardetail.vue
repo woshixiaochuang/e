@@ -81,7 +81,7 @@ export default {
       let id  = localStorage.shangpuId;
       let jwd = localStorage.shangpujwd;
       console.log(car,id,jwd)
-    //   let api ="/api/v1/carts/checkout?restaurant_id" + id +"&geohash=" +jwd + "&entities[]=" +car;
+    //   let api ="https://elm.cangdu.org/v1/carts/checkout?restaurant_id" + id +"&geohash=" +jwd + "&entities[]=" +car;
     // this.axios.get(api).then(data => {
     //   console.log(data)
     // });

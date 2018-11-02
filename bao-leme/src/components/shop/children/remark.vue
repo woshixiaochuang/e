@@ -42,7 +42,7 @@ export default {
     }
   },
   created() {
-    let api = "/api/v1/carts/1/remarks";
+    let api = "https://elm.cangdu.org/v1/carts/1/remarks";
     this.axios.get(api).then(data => {
       this.remarks = data.data.remarks;
     });

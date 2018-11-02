@@ -4,8 +4,8 @@
       <div id="box">
       <router-link id="ele"  to="/">ele.me</router-link>
       <div id="login">
-       <img v-if="logings"  style="width:.31rem;" :src="img" @click="change()">
-       <router-link  v-else :to="{name:'login'}">登录|注册</router-link>
+       <img v-if="logings"  style="width:.31rem;position:absolute;right:.1rem;top:0.1rem" :src="img" @click="change()">
+       <router-link style="font-size:.2rem; font-weight: bolder;color:white"  v-else :to="{name:'login'}">登录|注册</router-link>
       </div>
       </div>
     </div> 
@@ -51,6 +51,7 @@ export default {
        img: imgs,
     };
   },
+
   name: "app",
   components: {
     // Home
@@ -63,17 +64,17 @@ export default {
       this.logings = false
     }
     this.num -= 1
-    let api = "/api/v1/cities?type=guess";
+    let api = "https://elm.cangdu.org/v1/cities?type=guess";
     this.axios.get(api).then(data => {
       this.data = data.data;
       this.num +=1    });
 
-    let api1 = "/api/v1/cities?type=hot" + "#" + Math.random();
+    let api1 = "https://elm.cangdu.org/v1/cities?type=hot" + "#" + Math.random();
     this.axios.get(api1).then(data1 => {
       this.data1 = data1.data;
     });
 
-    let api2 = "/api/v1/cities?type=group"
+    let api2 = "https://elm.cangdu.org/v1/cities?type=group"
     this.axios.get(api2).then(data2 => {
       this.data2 = this.sort(data2.data);
     });

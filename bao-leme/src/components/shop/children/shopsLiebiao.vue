@@ -64,7 +64,7 @@ export default {
   created() {
     this.num -= 1
     let api =
-      "/api/shopping/restaurants?latitude=" +
+      "https://elm.cangdu.org/shopping/restaurants?latitude=" +
       this.latitude +
       "&longitude=" +
       this.longitude +
@@ -87,7 +87,7 @@ export default {
     order() {
       this.num -= 1
        let api =
-      "/api/shopping/restaurants?latitude=" +
+      "https://elm.cangdu.org/shopping/restaurants?latitude=" +
       this.latitude +
       "&longitude=" +
       this.longitude +
@@ -103,7 +103,7 @@ export default {
       let s = [...this.obj];
       if (s.length == 0) {
         let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude;
@@ -113,7 +113,7 @@ export default {
         });
       } else if (s.length == 1) {
         let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -124,7 +124,7 @@ export default {
         });
       } else if (s.length == 2){
          let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -136,7 +136,7 @@ export default {
         });
       } else if (s.length == 3){
          let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -149,7 +149,7 @@ export default {
         });
       } else if (s.length == 4){
          let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -163,7 +163,7 @@ export default {
         });
       } else if (s.length == 5){
          let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -178,7 +178,7 @@ export default {
         });
       } else if (s.length == 6){
          let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -197,7 +197,7 @@ export default {
     id() {
       this.num -= 1;
        let api =
-      "/api/shopping/restaurants?latitude=" +
+      "https://elm.cangdu.org/shopping/restaurants?latitude=" +
       this.latitude +
       "&longitude=" +
       this.longitude +
@@ -213,7 +213,7 @@ export default {
       if (this.psid == 1) {
         this.psids = this.psid;
         let api =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude +
@@ -224,7 +224,7 @@ export default {
         });
       } else {
         let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude;
