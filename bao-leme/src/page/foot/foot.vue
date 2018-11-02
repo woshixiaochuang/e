@@ -124,7 +124,7 @@ export default {
     //https://fuss10.elemecdn.com/b/ff/533cf9617bd57fe1dfb05603bebcfpng.png
     this.name = this.$route.params.title;
     let api =
-      "/api/shopping/v2/restaurant/category?latitude=" +
+      "https://elm.cangdu.org/shopping/v2/restaurant/category?latitude=" +
       this.latitude +
       "longitude=" +
       this.longitude;
@@ -133,7 +133,7 @@ export default {
       this.num += 1
     });
     let api1 =
-      "/api/shopping/v1/restaurants/activity_attributes?latitude=" +
+      "https://elm.cangdu.org/shopping/v1/restaurants/activity_attributes?latitude=" +
       this.latitude +
       "longitude=" +
       this.longitude;
@@ -142,7 +142,7 @@ export default {
       this.num += 1
     });
     let api2 =
-      "/api/shopping/v1/restaurants/delivery_modes?latitude=" +
+      "https://elm.cangdu.org/shopping/v1/restaurants/delivery_modes?latitude=" +
       this.latitude +
       "longitude=" +
       this.longitude;

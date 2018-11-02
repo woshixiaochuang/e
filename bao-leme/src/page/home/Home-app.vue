@@ -4,7 +4,8 @@
       <div id="box">
       <router-link id="ele"  to="/">ele.me</router-link>
       <div id="login">
-      <router-link :to="{name:'login'}">登录|注册</router-link>
+       <img v-if="logings"  style="width:.31rem;position:absolute;right:.1rem;top:0.1rem" :src="img" @click="change()">
+       <router-link style="font-size:.2rem; font-weight: bolder;color:white"  v-else :to="{name:'login'}">登录|注册</router-link>
       </div>
       </div>
     </div> 
@@ -38,6 +39,7 @@
 <script>
 import { Loading } from "element-ui";
 import loading from "../../components/common/loading";
+import imgs from "../../images/default.png";
 export default {
   data() {
     return {
@@ -45,32 +47,42 @@ export default {
       data1: [],
       data2: [],
       n:"",
-      num:1
+      num:1,
+       img: imgs,
     };
   },
+
   name: "app",
   components: {
     // Home
     loading
   },
   created() {
+    if(localStorage.username != null&&localStorage.password != null){
+      this.logings = true
+    }else{
+      this.logings = false
+    }
     this.num -= 1
-    let api = "/api/v1/cities?type=guess";
+    let api = "https://elm.cangdu.org/v1/cities?type=guess";
     this.axios.get(api).then(data => {
       this.data = data.data;
       this.num +=1    });
 
-    let api1 = "/api/v1/cities?type=hot" + "#" + Math.random();
+    let api1 = "https://elm.cangdu.org/v1/cities?type=hot" + "#" + Math.random();
     this.axios.get(api1).then(data1 => {
       this.data1 = data1.data;
     });
 
-    let api2 = "/api/v1/cities?type=group"
+    let api2 = "https://elm.cangdu.org/v1/cities?type=group"
     this.axios.get(api2).then(data2 => {
       this.data2 = this.sort(data2.data);
     });
   },
   methods: {
+      change() {
+      this.$router.push({name:"profile"});
+    },
     sort(arys) {
       //先用Object内置类的keys方法获取要排序对象的属性名，再利用Array原型上的sort方法对获取的属性名进行排序，newkey是一个数组
       var newkey = Object.keys(arys).sort();

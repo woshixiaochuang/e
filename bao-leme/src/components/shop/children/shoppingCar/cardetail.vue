@@ -19,8 +19,9 @@
             <p id="size" class="size">￥: <span>{{price2}}</span></p>
         </div>
         <div class="car-right" v-if="jiesuan">还差$20起送</div>
-        <div class="car-right2" v-else>
-            <router-link style="color:white" :to="{name:'jiesuan',params:{id:this.$route.params.id}}">去结算</router-link>
+        <div @click="urlbottom()"
+         class="car-right2" v-else>
+            <router-link  style="color:white" :to="{name:'jiesuan',params:{id:this.$route.params.id}}">去结算</router-link>
         </div>
     </div>
     </div>
@@ -73,6 +74,17 @@ export default {
       this.$store.commit("qk");
       // this.show=this.$store.state.show;
       this.show = !this.show;
+    },
+    urlbottom(){
+      let car = this.$store.state.arr;
+      console.log(car)
+      let id  = localStorage.shangpuId;
+      let jwd = localStorage.shangpujwd;
+      console.log(car,id,jwd)
+    //   let api ="https://elm.cangdu.org/v1/carts/checkout?restaurant_id" + id +"&geohash=" +jwd + "&entities[]=" +car;
+    // this.axios.get(api).then(data => {
+    //   console.log(data)
+    // });
     }
   }
 };

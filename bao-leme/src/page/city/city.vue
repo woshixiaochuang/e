@@ -64,7 +64,7 @@ export default {
     var newsearches = this.dedup(searches);
     this.LsCentern = newsearches;
     this.id = this.$route.params.id;
-    let api = "/api/v1/cities/" + this.id;
+    let api = "https://elm.cangdu.org/v1/cities/" + this.id;
     this.axios.get(api).then(data => {
       this.city = data.data.name;
       this.num += 1
@@ -84,13 +84,14 @@ export default {
         this.num -= 1;
         this.ls = false;
         let api =
-          "/api/v1/pois?city_id=" +
+          "https://elm.cangdu.org/v1/pois?city_id=" +
           this.id +
           "&keyword=" +
           this.value +
           "&type=search";
         this.axios.get(api).then(data => {
           this.num +=1
+
           this.data = data.data;
         });
       }

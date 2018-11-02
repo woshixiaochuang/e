@@ -5,7 +5,7 @@
       <img class="shopTop-img" src="" alt="">
     </div>
     <div class="shopListings">
-       <div class="shop-content" v-for="(item,index) in data" :key="index">
+       <div @click="btnsss(item)" class="shop-content" v-for="(item,index) in data" :key="index">
           <router-link :to="{name:'shopsDange',params:{id:item.id}}">
             <div class="shop-informations-images">
                <img class="shop-Images" :src="'https://elm.cangdu.org/img/'+item.image_path" alt="">
@@ -64,22 +64,30 @@ export default {
   created() {
     this.num -= 1
     let api =
-      "/api/shopping/restaurants?latitude=" +
+      "https://elm.cangdu.org/shopping/restaurants?latitude=" +
       this.latitude +
       "&longitude=" +
       this.longitude +
       "&order_by=" +
       this.order_by;
     this.$http.get(api).then(data => {
-      this.data = data.data;
       this.num += 1
+      this.data = data.data;
     });
+    
+  },
+  methods:{
+    btnsss(data){
+      localStorage.setItem("shangpuId",data.id)
+      let newjwd = data.location[0]+","+data.location[1]
+      localStorage.setItem("shangpujwd",newjwd)
+    }
   },
   watch: {
     order() {
       this.num -= 1
        let api =
-      "/api/shopping/restaurants?latitude=" +
+      "https://elm.cangdu.org/shopping/restaurants?latitude=" +
       this.latitude +
       "&longitude=" +
       this.longitude +
@@ -95,7 +103,7 @@ export default {
       let s = [...this.obj];
       if (s.length == 0) {
         let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude;
@@ -105,7 +113,7 @@ export default {
         });
       } else if (s.length == 1) {
         let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -116,7 +124,7 @@ export default {
         });
       } else if (s.length == 2){
          let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -128,7 +136,7 @@ export default {
         });
       } else if (s.length == 3){
          let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -141,7 +149,7 @@ export default {
         });
       } else if (s.length == 4){
          let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -155,7 +163,7 @@ export default {
         });
       } else if (s.length == 5){
          let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -170,7 +178,7 @@ export default {
         });
       } else if (s.length == 6){
          let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude+
@@ -189,7 +197,7 @@ export default {
     id() {
       this.num -= 1;
        let api =
-      "/api/shopping/restaurants?latitude=" +
+      "https://elm.cangdu.org/shopping/restaurants?latitude=" +
       this.latitude +
       "&longitude=" +
       this.longitude +
@@ -205,7 +213,7 @@ export default {
       if (this.psid == 1) {
         this.psids = this.psid;
         let api =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude +
@@ -216,7 +224,7 @@ export default {
         });
       } else {
         let api1 =
-          "/api/shopping/restaurants?latitude=" +
+          "https://elm.cangdu.org/shopping/restaurants?latitude=" +
           this.latitude +
           "&longitude=" +
           this.longitude;

@@ -137,6 +137,7 @@ export default new Router({
     {
       //付款路由
       path:"/confirmOrder/payment",
+      name:"payment",
       component:Payment},
      { path: '/shopsLiebiao/shopdetail',
       name:"shopdetail",

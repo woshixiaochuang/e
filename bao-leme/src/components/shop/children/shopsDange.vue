@@ -67,7 +67,7 @@ export default {
      
     let loadingInstance1 = Loading.service({ fullscreen: true });
     var id = this.$route.params.id;
-    let api = "/api/shopping/restaurant/"+id;
+    let api = "https://elm.cangdu.org/shopping/restaurant/"+id;
     this.axios.get(api).then((data)=>{
           this.data = data.data;
           this.$store.commit("shoppingcarid",this.data.id)

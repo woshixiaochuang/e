@@ -62,7 +62,7 @@ export default {
   created() {
     this.num -= 1;
     console.log(this.message);
-    let api = "/api/v1/captchas";
+    let api = " https://elm.cangdu.org/v1/captchas";
     this.axios.post(api).then(data => {
       this.img = data.data.code;
       this.num += 1;
@@ -71,7 +71,7 @@ export default {
   methods: {
     change() {
       this.num -= 1;
-      let api = "/api/v1/captchas";
+      let api = "https://elm.cangdu.org/v1/captchas";
       this.axios.post(api).then(data => {
         this.img = data.data.code;
         console.log(data);
@@ -83,7 +83,7 @@ export default {
       // this.tss = this.message;
       this.num -= 1;
       let api =
-        "/api/v2/changepassword?username=" +
+        "https://elm.cangdu.org/v2/changepassword?username=" +
         this.username +
         "oldpassWord=" +
         this.oldpassword +
