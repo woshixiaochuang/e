@@ -77,13 +77,14 @@ export default {
     },
     urlbottom(){
       let car = this.$store.state.arr;
+      console.log(car)
       let id  = localStorage.shangpuId;
       let jwd = localStorage.shangpujwd;
       console.log(car,id,jwd)
-      let api ="/api/v1/carts/checkout?restaurant_id" + id +"&geohash=" +jwd + "&entities[]=" +car;
-    this.axios.get(api).then(data => {
-      console.log(data)
-    });
+    //   let api ="/api/v1/carts/checkout?restaurant_id" + id +"&geohash=" +jwd + "&entities[]=" +car;
+    // this.axios.get(api).then(data => {
+    //   console.log(data)
+    // });
     }
   }
 };

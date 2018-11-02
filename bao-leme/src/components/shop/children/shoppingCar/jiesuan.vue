@@ -38,8 +38,8 @@
         <div class="pay-information">
             <ul>
                 <li>aaaa111</li>
-                <li>
-                    <span v-for="(item,index) in informations" :key="index">{{item.foods.name}}</span>
+                <li v-for="(item,index) in informations" :key="index">
+                    <span>{{item.foods[0].name}}</span>
                     <span class="infor-right">$20</span>
                     <span class="infor-right cred">*1</span>
                 </li>
@@ -76,7 +76,7 @@
         <div class="hcolor-gray"></div>
         <div class="tobe-paid">
             <p class="tobepay-p1">待支付 ${{this.$store.state.price}}</p>
-            <p class="tobepay-p2">确认下单</p>
+            <p @click="confirm()" class="tobepay-p2">确认下单</p>
         </div>
     </div>
 </template>
@@ -91,18 +91,15 @@ export default {
     },
     methods:{
         handle(){
-            if(this.$route.params.id){
-                this.$router.push({path:"/shopsLiebiao/"+this.$route.params.id});
-            }else{
-                 this.$router.go(-1)
-            }
-            
-        },
+                this.$router.push({path:"/shopsLiebiao/"+this.$route.params.id})},
         remark(){
             this.$router.push({name:`remark`})
         },
         invoice(){
             this.$router.push({name:`invoice`})
+        },
+        confirm(){
+            this.$router.push({name:`payment`})
         }
         
     }
