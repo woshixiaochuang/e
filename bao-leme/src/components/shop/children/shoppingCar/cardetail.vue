@@ -1,5 +1,6 @@
 <template>
     <div class="bigcar">
+      <el-collapse-transition>
         <div class="car-information" v-if="show">
             <div class="car-top">
                 <span>购物车</span>
@@ -13,6 +14,7 @@
                 <p class="subtract2" v-if="item.foods[0].specfoods[0].count>0" @click="subtract(item.foods[0].specfoods[0].food_id)">-</p>
             </div>
         </div>
+        </el-collapse-transition>
         <div class="shopping-car">
         <div class="car-left" @click="handle()">
             <p class="car"><img id="images" :src="imagess" alt=""></p>
