@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import imgc from "../../images/loading.png"
+import imgc from "../../images/loadings.png"
   export default {
     data () {
       return {
@@ -34,8 +34,8 @@ import imgc from "../../images/loading.png"
     z-index:100;
   }
   .imgbox{
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     animation: myfirst 0.8s infinite;
   }
   .img{
