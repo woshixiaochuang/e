@@ -9,7 +9,7 @@
           <p style="font-size: .05rem;margin-top:.03rem">限收货手机号为{{item.phone}}</p>
         </div>
         <div style="float:left;display: flex;align-items: center;">
-          <span style="padding: .1rem">已过期</span>
+          <span style="padding: .1rem;color: red;">已过期</span>
         </div>
       </div>
       <load v-if="cartoon != 1"></load>

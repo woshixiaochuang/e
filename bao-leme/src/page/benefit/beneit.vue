@@ -14,11 +14,11 @@
           </router-link>
         </div>
       <div class="hongbao" v-for="(item,index) in onsale" :key="index">
-        <div class="price"><p>￥{{item.amount}}</p> <p style="font-size: .05rem">满{{item.sum_condition}}元可用</p></div>
+        <div class="price"><p style="color: red">￥{{item.amount}}</p> <p style="font-size: .1rem">满{{item.sum_condition}}元可用</p></div>
         <div style="width:40%;float: left;height: 100%;padding-left: .2rem;">
           <p>{{item.name}}</p>
-          <p style="font-size: .05rem;margin-top:.03rem">{{item.end_date}}到期</p>
-          <p style="font-size: .05rem;margin-top:.03rem">限收货手机号为{{item.phone}}</p>
+          <p style="font-size: .15rem;margin-top:.03rem">{{item.end_date}}到期</p>
+          <p style="font-size: .15rem;margin-top:.03rem">限收货手机号为{{item.phone}}</p>
         </div>
         <div style="float:left;color: red; display: flex;align-items: center;">
           <span style="padding: .1rem">剩3日</span>
