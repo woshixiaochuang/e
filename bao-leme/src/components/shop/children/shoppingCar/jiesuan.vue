@@ -41,7 +41,7 @@
                 <li v-for="(item,index) in informations" :key="index">
                     <span>{{item.foods[0].name}}</span>
                     <span class="infor-right">$20</span>
-                    <span class="infor-right cred">*1</span>
+                    <span class="infor-right cred">*{{item.foods[0].specfoods[0].count}}</span>
                 </li>
                 <li>
                     <span>餐盒</span>

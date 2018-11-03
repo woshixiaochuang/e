@@ -1,6 +1,6 @@
 <template>
   <transition name="fade" mode="out-in">
- <router-view v-if="isRouterAlive"></router-view>
+ <router-view v-if="isRouterAlive" v-transition></router-view>
   </transition>
 </template>
 
