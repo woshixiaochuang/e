@@ -56,7 +56,8 @@
                     <span class="infor-right cred">待支付</span>
                 </li>
                 <li>
-                    <span class="infor-right cred">${{this.$store.state.price}}</span>
+                    <span class="infor-right cred">商品总价￥：{{this.$store.state.price}}</span>
+                    <span class="infor-right cred">总金额 ￥{{data}}</span>
                 </li>
             </ul>
         </div>
@@ -75,7 +76,8 @@
         </div>
         <div class="hcolor-gray"></div>
         <div class="tobe-paid">
-            <p class="tobepay-p1">待支付 ${{this.$store.state.price}}</p>
+            <p class="tobepay-p1">待支付 ￥{{this.$store.state.price}}</p>
+            <p class="tobepay-p1">总金额 ￥{{data}}</p>
             <p @click="confirm()" class="tobepay-p2">确认下单</p>
         </div>
     </div>
@@ -84,12 +86,20 @@
 <script>
 export default {
   name: "jiesuan",
+  data(){
+    return{
+      data:""
+    }
+  },
   computed: {
     informations() {
       return this.$store.state.arr.filter(
         num => num.foods[0].specfoods[0].count != 0
       );
     }
+  },
+  created(){
+     this.data = this.$store.state.price+4+this.$store.state.price;
   },
   methods: {
     handle() {
