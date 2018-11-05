@@ -10,7 +10,7 @@ import VueAxios from "vue-axios";
 import VueTouch from 'vue-touch';
 //引入vuex封装模块
 import store from "./store";
-import vueg from 'vueg'
+import vueg from 'vueg';
 import 'vueg/css/transition-min.css'
 import $ from "jquery";
 

@@ -172,4 +172,7 @@ export default {
 .second {
   border-bottom: none;
 }
+  .login{
+    color: white;
+  }
 </style>
