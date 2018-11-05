@@ -11,8 +11,8 @@
             <div id="lb" class="top_center" style="width:200%;height:100%;position: absolute;top:0;left:0">
                 <ul class="center" style="width:100%;height:1.9rem;overflow: hidden;">
                     <li @click="changeshopping(item.title)" class="center_l" v-for="(item,index) in title" :key="index">
-                      <img class="title_img" :src="'https://fuss10.elemecdn.com'+item.image_url" alt=""><br>
-                      <span style="margin:0px">{{item.title}}</span>
+                      <img class="title_img" :src="'https://fuss10.elemecdn.com'+item.image_url" alt="">
+                      <p style="margin:0px">{{item.title}}</p>
                       </li>  
                 </ul>
             </div>
@@ -143,7 +143,6 @@ export default {
 }
 .center_l{
     width: 12.5%;
-    height:50%;
     text-align: center;
     position: relative;
     font-size:.012rem;
