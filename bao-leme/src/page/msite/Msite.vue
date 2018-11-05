@@ -12,7 +12,7 @@
                 <ul class="center" style="width:100%;height:1.9rem;overflow: hidden;">
                     <li @click="changeshopping(item.title)" class="center_l" v-for="(item,index) in title" :key="index">
                       <img class="title_img" :src="'https://fuss10.elemecdn.com'+item.image_url" alt="">
-                      <p id="p" style="margin:0px">{{item.title}}</p>
+                      <p id="p" style="margin:0px;font-size:.12rem;">{{item.title}}</p>
                       </li>  
                 </ul>
             </div>
@@ -182,8 +182,5 @@ padding: .15rem;
 }
 #lb{
   transition: all 2s;
-}
-#p{
-  font-size: .12rem;
 }
 </style>
