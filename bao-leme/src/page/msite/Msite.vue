@@ -8,11 +8,11 @@
         </div>
          <div class="top" style="height:2.1rem;width:100%;background:white;position: relative;overflow: hidden;"><!--overflow: hidden; -->
             <v-touch v-on:swipeleft="swiperleft()" v-on:swiperight="swiperight()">
-            <div id="lb" class="top_center" style="width:200%;height:100%;position: absolute;left:0">
+            <div id="lb" class="top_center" style="width:200%;height:100%;position: absolute;top:0;left:0">
                 <ul class="center" style="width:100%;height:1.9rem;overflow: hidden;">
                     <li @click="changeshopping(item.title)" class="center_l" v-for="(item,index) in title" :key="index">
-                      <img class="title_img" :src="'https://fuss10.elemecdn.com'+item.image_url" alt="">
-                      {{item.title}}
+                      <img class="title_img" :src="'https://fuss10.elemecdn.com'+item.image_url" alt=""><br>
+                      <span style="margin:0px">{{item.title}}</span>
                       </li>  
                 </ul>
             </div>
@@ -145,18 +145,17 @@ export default {
     width: 12.5%;
     height:50%;
     text-align: center;
-    line-height:1.5rem;
     position: relative;
     font-size:.012rem;
     background:white;
 }
 .title_img{
   width: .55rem;
-  position: absolute;
-  top:0;
+  /* position: absolute; */
+  /* top:0;
   left: 0;
   right: 0;
-  margin: 0 auto;
+  margin: 0 auto; */
 }
 .dot{
 width: 100%;
@@ -185,4 +184,5 @@ padding: .15rem;
 #lb{
   transition: all 2s;
 }
+
 </style>

@@ -79,7 +79,7 @@ export default {
   data() {
     return {
       num:1,
-      name: this.$route.params.title,
+      name: localStorage.shangpinliebiao,
       classfoot: false,
       sort: false,
       screen: false,
@@ -122,7 +122,10 @@ export default {
   created() {
     this.num -= 3
     //https://fuss10.elemecdn.com/b/ff/533cf9617bd57fe1dfb05603bebcfpng.png
-    this.name = this.$route.params.title;
+     this.$route.params.title;
+     if(this.$route.params.title){
+     localStorage.setItem("shangpinliebiao",this.$route.params.title)
+     }
     let api =
       "https://elm.cangdu.org/shopping/v2/restaurant/category?latitude=" +
       this.latitude +
