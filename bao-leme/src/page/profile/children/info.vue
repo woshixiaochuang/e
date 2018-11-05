@@ -23,10 +23,12 @@
             <span>手机</span>
             </div>
             <p>安全设置</p>
+          <router-link to="/forget">
             <div class="alter">
                 <span>登录密码</span>
                 <span class="alterc">修改></span>
             </div>
+          </router-link>
         </div>
         <button @click="exit" class="exit">退出登录</button>
         <Alert  :alertValue="alertValue"></Alert>
